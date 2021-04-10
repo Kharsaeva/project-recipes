@@ -2,7 +2,7 @@ import React from "react";
 
 function RecipesItem(props) {
   return (
-    <div className="m-auto d-block">
+    <div className="RecipesItem m-auto d-block">
       <div className="pb-4">
         <div className="d-inline d-flex pb-4">
           <img

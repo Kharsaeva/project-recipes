@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import Main from './Main'
-import { useDispatch } from 'react-redux'
-import { loadRecipes } from '../redux/reducers/recipes'
+import React, { useEffect } from "react";
+import Main from "./Main";
+import { useDispatch } from "react-redux";
+import { loadRecipes } from "../redux/reducers/recipes";
 
 function App() {
   const dispatch = useDispatch();

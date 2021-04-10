@@ -1,5 +1,4 @@
 import React from "react";
-//import RecipesItem from "./RecipesItem";
 import { useSelector } from "react-redux";
 
 function Recipes(props) {
@@ -13,13 +12,13 @@ function Recipes(props) {
   return (
     <div
       style={{ width: "60%" }}
-      className="justify-content-center m-auto"
+      className="Recipes justify-content-center m-auto"
     >
       {recipes.map((item) => {
         return (
-          <div>
+          <div className="recipes-block">
             <div className="d-inline-flex">
-              <div className="mb-3">
+              <div className="img mb-3">
                 <img width={286} height={180} src={item.url} alt="img" />
               </div>
               <div className="d-block p-3 align-self-center">
@@ -34,7 +33,7 @@ function Recipes(props) {
                   </div>
                   <div>{item.time}</div>
                 </div>
-                </div>
+              </div>
             </div>
             <div style={{ borderTop: "1px solid darkgrey" }} className="pb-3">
               {" "}
