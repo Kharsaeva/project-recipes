@@ -1,8 +1,7 @@
 import React from "react";
-import Slider from "./Slider";
 import Search from "./Search";
 import Recipes from "./Recipes";
-
+import Slider from './Slider';
 function Main(props) {
   return (
     <div className="Main">
