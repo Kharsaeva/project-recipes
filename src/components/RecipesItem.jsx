@@ -1,6 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { dataLike } from "../redux/reducers/recipes";
 
 function RecipesItem(props) {
+  const dispatch = useDispatch();
+  const dataLiking = (id, like) => {
+    dispatch(dataLike(id, like));
+  };
+
   return (
     <div className="RecipesItem m-auto d-block">
       <div className="pb-4">
@@ -25,7 +32,11 @@ function RecipesItem(props) {
         <div>{props.item.cooking}</div>
       </div>
       <div className="d-inline d-flex w-auto p-4">
-        <div>👍 {props.item.like}</div>
+        <div className="LikeOne" onClick={() => dataLiking(props.item.id)}>
+          👍{props.item.liking ? (
+            <div> </div>
+          ) : props.item.like}
+        </div>
         <div
           style={{ borderRight: "1px solid darkgrey" }}
           className="ml-4 mr-4"

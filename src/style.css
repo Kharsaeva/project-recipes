@@ -140,3 +140,7 @@
 .number {
   padding: 25px 0;
 }
+
+.LikeOne {
+  cursor: pointer;
+}
