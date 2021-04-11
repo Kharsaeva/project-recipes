@@ -45,7 +45,7 @@ export const loadRecipes = () => {
   return (dispatch) => {
     dispatch({ type: RECIPES_LOAD_START });
 
-    fetch("  http://localhost:3010/recipes")
+    fetch("http://localhost:3010/recipes")
       .then((response) => response.json())
       .then((json) => {
         dispatch({
