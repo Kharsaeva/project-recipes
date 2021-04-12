@@ -25,7 +25,9 @@ function RecipesItem(props) {
         <div>{props.item.cooking}</div>
       </div>
       <div className="d-inline d-flex w-auto p-4">
-        <div>👍 {props.item.like}</div>
+        <div className="LikeOne">
+          👍 {props.item.like}
+        </div>
         <div
           style={{ borderRight: "1px solid darkgrey" }}
           className="ml-4 mr-4"
@@ -39,7 +41,7 @@ function RecipesItem(props) {
         >
           {" "}
         </div>
-        <div>🔂</div>
+        <div className="LikeOne" onClick={() => props.setModalActive(true)} >💬</div>
       </div>
       <div style={{ borderTop: "1px solid darkgrey" }} className="pb-4">
         {" "}
