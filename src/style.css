@@ -140,3 +140,29 @@
 .number {
   padding: 25px 0;
 }
+
+.LikeOne {
+  cursor: pointer;
+}
+
+.nameComm {
+  font-weight: bold;
+}
+
+.inputComm {
+  height: 27px;
+  margin-top: 290px;
+  margin-left: 20px;
+}
+
+.rod {
+  display: flex;
+}
+
+.btnComm {
+  height: 30px;
+  margin-top: 290px;
+  text-align: center;
+  margin-left: 20px;
+  border-radius: 4px;
+}
