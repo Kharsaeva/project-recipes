@@ -6,10 +6,10 @@ import "./modal.css";
 import ModalW from "./ModalW";
 
 function Main(props) {
-  const [modalActive, setModalActive] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
   return (
     <div className="Main">
-      <ModalW active={modalActive} setActive={setModalActive}/>
+      <ModalW active={modalActive} setActive={setModalActive} />
       <Slider />
       <Search setModalActive={setModalActive} />
       <Recipes />

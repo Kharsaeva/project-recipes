@@ -1,7 +1,7 @@
-import Header from './Header'
-import Main from './Main'
+import Header from "./Header";
+import Main from "./Main";
 import React, { useEffect } from "react";
-import Footer from './Footer'
+import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 import { loadRecipes } from "../redux/reducers/recipes";
 

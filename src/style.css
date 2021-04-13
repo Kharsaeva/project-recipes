@@ -166,3 +166,12 @@
   margin-left: 20px;
   border-radius: 4px;
 }
+
+.exit {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  border: none;
+  background-color: white;
+}
