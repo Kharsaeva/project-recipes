@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { FiThumbsUp, FiBookmark, FiMessageCircle } from "react-icons/fi";
 
 function RecipesItem(props) {
+  
+  const [likeClick, setLikeClick] = useState(props.item.like);
+  const [likeStatus, setLikeStatus] = useState(false);
+  const likeActive = () => {
+    if(likeStatus===false) {
+      setLikeStatus(!likeStatus)
+      setLikeClick(likeClick+1)
+    }
+  }
   return (
     <div className="RecipesItem m-auto d-block">
       <div className="pb-4">
@@ -26,7 +36,7 @@ function RecipesItem(props) {
       </div>
       <div className="d-inline d-flex w-auto p-4">
         <div className="LikeOne">
-          👍 {props.item.like}
+        <FiThumbsUp size={25} fill={likeStatus? "black" : "none"} onClick={() => likeActive()}/> {likeClick}
         </div>
         <div
           style={{ borderRight: "1px solid darkgrey" }}
@@ -34,14 +44,17 @@ function RecipesItem(props) {
         >
           {" "}
         </div>
-        <div>🛒{props.item.favorite}</div>
+        <div><FiBookmark size={25} />{props.item.favorite}</div>
         <div
           style={{ borderRight: "1px solid darkgrey" }}
           className="ml-4 mr-4"
         >
           {" "}
         </div>
-        <div className="LikeOne" onClick={() => props.setModalActive(true)} >💬</div>
+        <div className="LikeOne" 
+          onClick={() => props.setModalActive(true)} >
+          <FiMessageCircle size={25} />
+        </div>
       </div>
       <div style={{ borderTop: "1px solid darkgrey" }} className="pb-4">
         {" "}
