@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+
 function Slider(props) {
   return (
     <div style={{ width: "60%" }} className="Slider m-auto pt-1 pb-1">
