@@ -31,7 +31,13 @@ function Search(props) {
         {/*</Button>*/}
       </Form.Group>
       {filteredRecipes.map((item) => {
-        return <RecipesItem item={item} key={item.id} setModalActive={props.setModalActive}/>;
+        return (
+          <RecipesItem
+            item={item}
+            key={item.id}
+            setModalActive={props.setModalActive}
+          />
+        );
       })}
     </div>
   );
