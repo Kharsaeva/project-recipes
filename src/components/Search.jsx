@@ -35,11 +35,9 @@ function Search(props) {
           <RecipesItem
             item={item}
             key={item.id}
-            setModalActive={props.setModalActive}
           />
         );
-        return <RecipesItem item={item} key={item.id} />;
-        return <RecipesItem item={item} key={item.id} />;
+
       })}
     </div>
   );

@@ -66,7 +66,6 @@ function RecipesItem(props) {
           />{" "}
           {likeClick}
         </div>
-        <div className="LikeOne">👍 {props.item.like}</div>
         <div
           style={{ borderRight: "1px solid darkgrey" }}
           className="ml-4 mr-4"
@@ -79,16 +78,13 @@ function RecipesItem(props) {
             fill={props.item.favorite ? "black" : "none"}
             onClick={() => setFavorite(props.item.id, props.item.favorite)}
           />
-          {props.item.favorite}
+
         </div>
         <div
           style={{ borderRight: "1px solid darkgrey" }}
           className="ml-4 mr-4"
         >
           {" "}
-        </div>
-        <div className="LikeOne" onClick={() => props.setModalActive(true)}>
-          💬
         </div>
         <div className="LikeOne" onClick={() => commOpen()}>
           <FiMessageCircle size={25} />
