@@ -1,0 +1,174 @@
+.logoImg {
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  width: 200px;
+  height: 75px;
+  margin-top: 10px;
+}
+
+.kategori {
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 5px;
+  border-bottom: grey 1px solid;
+}
+
+.oNas {
+  text-align: center;
+  font-size: 25px;
+  padding-top: 10px;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.bookmarkImg {
+  width: 100%;
+}
+
+.bookmark {
+  width: 75px;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.schetchick {
+  background-color: #c4c4c4;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 17px;
+  border-radius: 15px;
+  position: relative;
+  top: -80px;
+}
+
+.arr {
+  font-size: 25px;
+}
+
+.Login {
+  width: 125px;
+  height: 30px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #c4c4c4;
+}
+
+.main {
+  margin-top: 25px;
+}
+
+.steak {
+  border: solid 2px black;
+  margin: auto;
+}
+
+.steakImg {
+  width: 100%;
+}
+
+.typeT {
+  width: 100%;
+  height: 50px;
+  font-size: 30px;
+  margin-bottom: 110px;
+}
+
+.poisk {
+  margin-top: 50px;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.eatImg {
+  width: 100%;
+  height: 100%;
+}
+
+.eat {
+  width: 500px;
+}
+
+.karta {
+  display: flex;
+  margin-bottom: 20px;
+  border: double grey 6px;
+}
+
+.karta:hover {
+  box-shadow: -3px 4px 6px 1px rgba(0, 0, 0, 1);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.name {
+  text-align: center;
+  font-size: 40px;
+  margin: auto;
+  margin-top: 1px;
+}
+
+.description {
+  padding: 10px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.calories {
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+  border-top: solid 1px grey;
+  margin-top: 100px;
+}
+
+.number {
+  padding: 25px 0;
+}
+
+.LikeOne {
+  cursor: pointer;
+}
+
+.nameComm {
+  font-weight: bold;
+}
+
+.rod {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.inputComm {
+  height: 27px;
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+  margin-left: 20px;
+  box-sizing: border-box;
+}
+
+.btnComm {
+  height: 30px;
+  position: fixed;
+  bottom: 10px;
+  right: 40px;
+  text-align: center;
+  margin-left: 20px;
+  border-radius: 4px;
+}
