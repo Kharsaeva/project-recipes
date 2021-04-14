@@ -7,6 +7,7 @@ import RecipesItem from "./RecipesItem";
 function Search(props) {
   const recipes = useSelector((state) => state.recipes.items);
   const filter = useSelector((state) => state.recipes.filter);
+
   const dispatch = useDispatch();
 
   const filteredRecipes = recipes.filter(
@@ -37,6 +38,7 @@ function Search(props) {
             setModalActive={props.setModalActive}
           />
         );
+        return <RecipesItem item={item} key={item.id} />;
         return <RecipesItem item={item} key={item.id} />;
       })}
     </div>
