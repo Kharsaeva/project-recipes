@@ -1,6 +1,8 @@
 const RECIPES_LOAD_START = "recipes/load/start";
 const RECIPES_LOAD_SUCCESS = "recipes/load/success";
 const FILTER_SET = "filter/set";
+const FAVORITE_SET_START = "favorite/set/start";
+const FAVORITE_SET_SUCCESS = "favorite/set/success";
 
 const initialState = {
   items: [],
@@ -30,6 +32,20 @@ export default function reducer(state = initialState, action) {
         filter: action.payload,
       };
 
+    case FAVORITE_SET_SUCCESS:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.id === action.payload) {
+            return {
+              ...item,
+              favorite: true,
+            };
+          }
+          return item;
+        }),
+      };
+
     default:
       return state;
   }
@@ -56,3 +72,23 @@ export const loadRecipes = () => {
       });
   };
 };
+
+export function favoritePatch(id, favorite) {
+  return (dispatch) => {
+    dispatch({
+      type: FAVORITE_SET_START,
+    });
+    fetch(`https://localhost:3010/recipes/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ favorite: !favorite }),
+      headers: { "Content-type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then(() => {
+        dispatch({
+          type: FAVORITE_SET_SUCCESS,
+          payload: id,
+        });
+      });
+  };
+}

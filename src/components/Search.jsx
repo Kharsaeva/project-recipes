@@ -7,7 +7,6 @@ import RecipesItem from "./RecipesItem";
 function Search(props) {
   const recipes = useSelector((state) => state.recipes.items);
   const filter = useSelector((state) => state.recipes.filter);
-
   const dispatch = useDispatch();
 
   const filteredRecipes = recipes.filter(
@@ -31,7 +30,7 @@ function Search(props) {
         {/*</Button>*/}
       </Form.Group>
       {filteredRecipes.map((item) => {
-        return <RecipesItem item={item} key={item.id} setModalActive={props.setModalActive}/>;
+        return <RecipesItem item={item} key={item.id} />;
       })}
     </div>
   );
