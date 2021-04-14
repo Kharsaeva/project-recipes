@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilterText } from "../redux/reducers/recipes";
 import RecipesItem from "./RecipesItem";
@@ -7,7 +7,6 @@ import RecipesItem from "./RecipesItem";
 function Search(props) {
   const recipes = useSelector((state) => state.recipes.items);
   const filter = useSelector((state) => state.recipes.filter);
-
   const dispatch = useDispatch();
 
   const filteredRecipes = recipes.filter(
@@ -38,6 +37,7 @@ function Search(props) {
             setModalActive={props.setModalActive}
           />
         );
+        return <RecipesItem item={item} key={item.id} />;
       })}
     </div>
   );
