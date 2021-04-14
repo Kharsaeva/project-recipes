@@ -39,7 +39,7 @@ export default function reducer(state = initialState, action) {
           if (item.id === action.payload) {
             return {
               ...item,
-              favorite: true,
+              favorite: !item.favorite,
             };
           }
           return item;
@@ -78,7 +78,7 @@ export function favoritePatch(id, favorite) {
     dispatch({
       type: FAVORITE_SET_START,
     });
-    fetch(`https://localhost:3010/recipes/${id}`, {
+    fetch(`http://localhost:3010/recipes/${id}`, {
       method: "PATCH",
       body: JSON.stringify({ favorite: !favorite }),
       headers: { "Content-type": "application/json" },
