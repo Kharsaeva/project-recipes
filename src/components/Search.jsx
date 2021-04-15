@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilterText } from "../redux/reducers/recipes";
 import RecipesItem from "./RecipesItem";
@@ -35,9 +35,9 @@ function Search(props) {
           <RecipesItem
             item={item}
             key={item.id}
-            setModalActive={props.setModalActive}
           />
         );
+
       })}
     </div>
   );

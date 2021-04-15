@@ -1,11 +1,34 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { itemDelete } from "../redux/reducers/recipes";
+import React, { useState } from "react";
+import { FiThumbsUp, FiBookmark, FiMessageCircle } from "react-icons/fi";
+import { favoritePatch } from "../redux/reducers/recipes";
+import ModalW from "./ModalW";
 
 function RecipesItem(props) {
   const dispatch = useDispatch();
   const itemDeleting = (id) => {
     dispatch(itemDelete(id));
+  };
+
+
+  const [modalActive, setModalActive] = useState(false);
+
+  const commOpen = () => {
+    setModalActive(true);
+  };
+
+  const setFavorite = (id, favorite) => {
+    dispatch(favoritePatch(id, favorite));
+  };
+
+  const [likeClick, setLikeClick] = useState(props.item.like);
+  const [likeStatus, setLikeStatus] = useState(false);
+  const likeActive = () => {
+    if (likeStatus === false) {
+      setLikeStatus(!likeStatus);
+      setLikeClick(likeClick + 1);
+    }
   };
 
   return (
@@ -35,27 +58,46 @@ function RecipesItem(props) {
         <div>{props.item.cooking}</div>
       </div>
       <div className="d-inline d-flex w-auto p-4">
-        <div className="LikeOne">👍 {props.item.like}</div>
+        <div className="LikeOne">
+          <FiThumbsUp
+            size={25}
+            fill={likeStatus ? "black" : "none"}
+            onClick={() => likeActive()}
+          />{" "}
+          {likeClick}
+        </div>
         <div
           style={{ borderRight: "1px solid darkgrey" }}
           className="ml-4 mr-4"
         >
           {" "}
         </div>
-        <div>🛒{props.item.favorite}</div>
+        <div>
+          <FiBookmark
+            size={25}
+            fill={props.item.favorite ? "black" : "none"}
+            onClick={() => setFavorite(props.item.id, props.item.favorite)}
+          />
+
+        </div>
         <div
           style={{ borderRight: "1px solid darkgrey" }}
           className="ml-4 mr-4"
         >
           {" "}
         </div>
-        <div className="LikeOne" onClick={() => props.setModalActive(true)}>
-          💬
+        <div className="LikeOne" onClick={() => commOpen()}>
+          <FiMessageCircle size={25} />
         </div>
       </div>
       <div style={{ borderTop: "1px solid darkgrey" }} className="pb-4">
         {" "}
       </div>
+      <ModalW
+        active={modalActive}
+        setActive={setModalActive}
+        item={props.item}
+      />
     </div>
   );
 }
