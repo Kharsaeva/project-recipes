@@ -1,10 +1,10 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilterText } from "../redux/reducers/recipes";
 import RecipesItem from "./RecipesItem";
 
-function Search(props) {
+function Search() {
   const recipes = useSelector((state) => state.recipes.items);
   const filter = useSelector((state) => state.recipes.filter);
 
@@ -19,7 +19,7 @@ function Search(props) {
   };
 
   return (
-    <div style={{ width: "60%" }} className="Search m-auto pt-1">
+    <div style={{ width: "80%" }} className="Search m-auto pt-1">
       <Form.Group className="d-flex">
         <Form.Control
           placeholder="Найти нужный рецепт..."
