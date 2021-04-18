@@ -1,21 +1,15 @@
 import React from "react";
 import Search from "./Search";
-import Recipes from "./Recipes";
 import Slider from "./Slider";
 import "./modal.css";
-
-import { useSelector } from "react-redux";
+import Recipes from "./Recipes";
 
 function Main(props) {
-  const recipes = useSelector((state) => state.recipes.items);
-
   return (
-    <div className="Main">
+    <div className="main">
       <Slider />
       <Search />
-      {recipes.map((item) => {
-        return <Recipes item={item} />;
-      })}
+      <Recipes />
     </div>
   );
 }
