@@ -150,11 +150,11 @@ a:hover {
   color: rgb(244, 67, 54);
 }
 
-.LikeOne {
+.like-one {
   cursor: pointer;
 }
 
-.nameComm {
+.name-comm {
   font-weight: bold;
 }
 
@@ -163,7 +163,7 @@ a:hover {
   box-sizing: border-box;
 }
 
-.inputComm {
+.input-comm {
   height: 27px;
   position: fixed;
   bottom: 10px;
@@ -172,7 +172,7 @@ a:hover {
   box-sizing: border-box;
 }
 
-.btnComm {
+.btn-comm {
   height: 30px;
   position: fixed;
   bottom: 10px;
