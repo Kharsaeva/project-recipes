@@ -9,30 +9,21 @@
   margin-top: 10px;
 }
 
-.kategori {
-  font-size: 25px;
-  text-align: center;
+ul {
+  list-style: none;
+  display: flex;
+  font-size: 20px;
   cursor: pointer;
-  margin-top: 5px;
-  border-bottom: grey 1px solid;
+  margin-top: 20px;
 }
 
-.oNas {
-  text-align: center;
-  font-size: 25px;
-  padding-top: 10px;
-  color: rgba(0, 0, 0, 0.6);
-  cursor: pointer;
+li {
+  margin-left: 15px;
 }
 
-.bookmarkImg {
-  width: 100%;
-}
-
-.bookmark {
-  width: 75px;
-  margin: auto;
-  padding-top: 10px;
+li:hover {
+  color: rgb(244, 67, 54);
+  border-bottom: gray 1px solid;
 }
 
 .schetchick {
@@ -60,7 +51,8 @@
 }
 
 .main {
-  margin-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .steak {
@@ -134,11 +126,20 @@
   justify-content: space-evenly;
   font-weight: bold;
   border-top: solid 1px grey;
-  margin-top: 100px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
 }
 
 .number {
-  padding: 25px 0;
+  padding: 18px 0;
+  cursor: pointer;
+}
+
+.number:hover {
+  color: rgb(244, 67, 54);
 }
 
 .LikeOne {
