@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import Header from "./Header";
 import Main from "./Main";
+import React, { useEffect } from "react";
+import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 import { loadRecipes } from "../redux/reducers/recipes";
 
@@ -11,8 +13,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="app">
+      <Header />
       <Main />
+      <Footer />
     </div>
   );
 }
