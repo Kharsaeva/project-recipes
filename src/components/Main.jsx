@@ -1,13 +1,13 @@
 import React from "react";
 import Search from "./Search";
-import Recipes from "./Recipes";
-import Slider from './Slider';
+import Slider from "./Slider";
+import "./modal.css";
+
 function Main(props) {
   return (
     <div className="Main">
       <Slider />
       <Search />
-      <Recipes />
     </div>
   );
 }
