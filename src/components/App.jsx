@@ -4,9 +4,12 @@ import React, { useEffect } from "react";
 import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 import { loadRecipes } from "../redux/reducers/recipes";
-import Recipes from './Recipes'
-import RecipesItem from './RecipesItem'
 import {Switch, Route} from 'react-router-dom';
+import Allrecipes from './Allrecipes'
+import Meat from './Meat'
+import Desserts from './Desserts'
+import Beverages from './Beverages'
+import Salads from './Salads'
 
 function App() {
   const dispatch = useDispatch();
@@ -16,17 +19,26 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="container-lg">
+    <div className="container-lg mb-5">
       <Header />
       <Switch>
         <Route exact path="/">
           <Main />
         </Route>
-        <Route path="/allrecipes">
-          <Recipes />
+        <Route path="/allrecipes/:id?">
+          <Allrecipes />
         </Route>
-        <Route path="/meat">
-          <RecipesItem />
+        <Route path="/meat/:id?">
+          <Meat />
+        </Route>
+        <Route path="/desserts/:id?">
+          <Desserts />
+        </Route>
+        <Route path="/beverages/:id?">
+          <Beverages />
+        </Route>
+        <Route path="/salads/:id?">
+          <Salads />
         </Route>
       </Switch>
       <Footer />

@@ -1,5 +1,5 @@
 import React from "react";
-import { FiBookmark } from 'react-icons/all'
+import { FiBookmark, FaUserCircle } from 'react-icons/all'
 import { Link,  useHistory } from 'react-router-dom'
 import { Dropdown } from 'react-bootstrap'
 
@@ -12,6 +12,15 @@ function Header() {
   }
   const handleClick2 = () => {
     history.push("/meat");
+  }
+  const handleClick3 = () => {
+    history.push("/desserts");
+  }
+  const handleClick4 = () => {
+    history.push("/beverages");
+  }
+  const handleClick5 = () => {
+    history.push("/salads");
   }
 
   return (
@@ -40,14 +49,10 @@ function Header() {
                      <Dropdown.Menu>
                        <Dropdown.Item onClick={handleClick}>Все рецепты</Dropdown.Item>
                        <Dropdown.Item onClick={handleClick2}>Мясные</Dropdown.Item>
-                       <Dropdown.Item>Tech I Like</Dropdown.Item>
-                       <Dropdown.Item>About me</Dropdown.Item>
+                       <Dropdown.Item onClick={handleClick3}>Десерты</Dropdown.Item>
+                       <Dropdown.Item onClick={handleClick4}>Напитки</Dropdown.Item>
+                       <Dropdown.Item onClick={handleClick5}>Салаты</Dropdown.Item>
                      </Dropdown.Menu>
-                  {/*<MenuItem onClick={handleClick}>Все рецепты</MenuItem>*/}
-                  {/*<MenuItem>Мясные</MenuItem>*/}
-                  {/*<MenuItem href="#">Tech I Like</MenuItem>*/}
-                  {/*<MenuItem href="#">About me</MenuItem>*/}
-                  {/*<MenuItem href="#addBlog">Add a Blog</MenuItem>*/}
                 </Dropdown>
                 </div>
               </li>
@@ -61,12 +66,14 @@ function Header() {
                  <FiBookmark
                    size={25}
                    style={{marginTop:22}}
-
                  />
                   <div className="schetchick">1</div>
               </li>
               <li className="nav-item">
-                <button className="Login">Войти</button>
+                <FaUserCircle
+                  size={25}
+                  style={{marginTop:22}}
+                />
               </li>
             </ul>
           </div>
@@ -78,11 +85,3 @@ function Header() {
 
 export default Header;
 
-// <select className="kategori">
-//   <option>Кaтегории рецептов</option>
-//   {/*<option >Все рецепты</option>*/}
-//   {/*<option>Десерты</option>*/}
-//   {/*<option>Мясные</option>*/}
-//   {/*<option>Напитки</option>*/}
-//   {/*<option>Супы</option>*/}
-// </select>

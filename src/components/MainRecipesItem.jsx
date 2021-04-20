@@ -1,19 +1,12 @@
-import { useDispatch } from "react-redux";
-import { itemDelete } from "../redux/reducers/recipes";
-import React, { useState } from "react";
-import { FiThumbsUp, FiBookmark, FiMessageCircle } from "react-icons/fi";
-import { favoritePatch } from "../redux/reducers/recipes";
-import ModalW from "./ModalW";
+import React, { useState } from 'react'
+import { favoritePatch } from '../redux/reducers/recipes'
+import { FiBookmark, FiMessageCircle, FiThumbsUp } from 'react-icons/fi'
+import ModalW from './ModalW'
+import { useDispatch } from 'react-redux'
 
-function RecipesItem(props) {
-  const dispatch = useDispatch();
-  const itemDeleting = (id) => {
-    dispatch(itemDelete(id));
-  };
-
-
+function MainRecipesItem (props) {
   const [modalActive, setModalActive] = useState(false);
-
+  const dispatch = useDispatch();
   const commOpen = () => {
     setModalActive(true);
   };
@@ -42,21 +35,13 @@ function RecipesItem(props) {
             alt="img"
           />
           <h2 className="align-self-center">{props.item.title}</h2>
-          <button className="exit" onClick={() => itemDeleting(props.item.id)}>
-            ❌
-          </button>
         </div>
         <div className="d-block align-self-center pb-4">
           <span className="mr-5">Каллорийность: {props.item.calories}</span>
           <span>Время приготовления: {props.item.time}</span>
         </div>
-        <h5>Ингредиенты:</h5>
-        <span>{props.item.ingredients}</span>
       </div>
-      <div className="cooking-method">
-        <h5>Способ приготовления:</h5>
-        <div>{props.item.cooking}</div>
-      </div>
+
       <div className="d-inline d-flex w-auto p-4">
         <div className="LikeOne">
           <FiThumbsUp
@@ -102,4 +87,4 @@ function RecipesItem(props) {
   );
 }
 
-export default RecipesItem;
+export default MainRecipesItem
