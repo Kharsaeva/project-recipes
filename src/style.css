@@ -26,9 +26,9 @@
   width: 100%;
 }
 
-.bookmark {
-  margin: auto;
-  padding-top: 20px;
+li:hover {
+  color: rgb(244, 67, 54);
+  border-bottom: gray 1px solid;
 }
 
 .schetchick {
@@ -57,7 +57,8 @@
 }
 
 .main {
-  margin-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .steak {
@@ -131,18 +132,35 @@
   justify-content: space-evenly;
   font-weight: bold;
   border-top: solid 1px grey;
-  margin-top: 100px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
 }
 
 .number {
-  padding: 25px 0;
-}
-
-.LikeOne {
+  padding: 18px 0;
   cursor: pointer;
 }
 
-.nameComm {
+.number:hover {
+  color: rgb(244, 67, 54);
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: rgb(244, 67, 54);
+}
+
+.like-one {
+  cursor: pointer;
+}
+
+.name-comm {
   font-weight: bold;
 }
 
@@ -151,7 +169,7 @@
   box-sizing: border-box;
 }
 
-.inputComm {
+.input-comm {
   height: 27px;
   position: fixed;
   bottom: 10px;
@@ -160,7 +178,7 @@
   box-sizing: border-box;
 }
 
-.btnComm {
+.btn-comm {
   height: 30px;
   position: fixed;
   bottom: 10px;

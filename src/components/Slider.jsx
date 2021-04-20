@@ -1,12 +1,13 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-function Slider() {
+
+function Slider(props) {
   return (
-    <div style={{ width: "80%" }} className="Slider m-auto pt-1 pb-1">
+    <div style={{ width: "75%" }} className="slider m-auto">
       <Carousel fade>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="w-100"
             src="https://img4.goodfon.com/wallpaper/nbig/b/b5/limonad-apelsin-laim-iagody-led.jpg"
             alt="First slide"
           />
@@ -22,7 +23,7 @@ function Slider() {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Десерты</h3>
+            <h3>Десерты</h3>{" "}
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>

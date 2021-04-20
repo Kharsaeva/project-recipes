@@ -1,25 +1,19 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux'
 import { setFilterText } from "../redux/reducers/recipes";
 
-
-function Search() {
-  // const recipes = useSelector((state) => state.recipes.items);
-  const filter = useSelector((state) => state.recipes.filter);
-
+function Search(props) {
   const dispatch = useDispatch();
 
-  // const filteredRecipes = recipes.filter(
-  //   (item) => item.title.indexOf(filter) > -1
-  // );
+  const filter = useSelector((state) => state.recipes.filter);
 
   const handleChangeFilter = (event) => {
     dispatch(setFilterText(event.target.value));
   };
 
   return (
-    <div style={{ width: "80%" }} className="Search m-auto pt-1">
+    <div style={{ width: "75%" }} className="search m-auto pt-3">
       <Form.Group className="d-flex">
         <Form.Control
           placeholder="Найти нужный рецепт..."
@@ -27,15 +21,7 @@ function Search() {
           onChange={handleChangeFilter}
         />
       </Form.Group>
-      {/*{filteredRecipes.map((item) => {*/}
-      {/*  return (*/}
-      {/*    <RecipesItem*/}
-      {/*      item={item}*/}
-      {/*      key={item.id}*/}
-      {/*    />*/}
-      {/*  );*/}
 
-      {/*})}*/}
     </div>
   );
 }
