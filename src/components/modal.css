@@ -26,6 +26,7 @@
   transition: 0.4s all;
   width: 400px;
   height: 400px;
+  overflow: scroll;
 }
 
 .modal__content.active {

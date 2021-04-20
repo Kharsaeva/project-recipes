@@ -1,39 +1,81 @@
 import React from "react";
+import { FiBookmark, FaUserCircle } from 'react-icons/all'
+import { Link,  useHistory } from 'react-router-dom'
+import { Dropdown } from 'react-bootstrap'
+
 
 function Header() {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push("/allrecipes");
+
+  }
+  const handleClick2 = () => {
+    history.push("/meat");
+  }
+  const handleClick3 = () => {
+    history.push("/desserts");
+  }
+  const handleClick4 = () => {
+    history.push("/beverages");
+  }
+  const handleClick5 = () => {
+    history.push("/salads");
+  }
+
   return (
     <div className="header">
-      <div className="container">
-        <div className="row">
-          <div className="col-4">
+      <div className="container-lg">
+        <div className="row  justify-content-between">
+          <div className="col-3">
             <div className="logo">
-              <img
-                src="https://im0-tub-ru.yandex.net/i?id=77b7ea8c917a0bde08b581414328f261&n=13"
-                alt="Logo"
-                className="logoImg"
-              />
+              <Link to="/">
+                <img
+                  src="https://im0-tub-ru.yandex.net/i?id=77b7ea8c917a0bde08b581414328f261&n=13"
+                  alt="Logo"
+                  className="logoImg"
+                />
+              </Link>
             </div>
           </div>
-          <div className="col">
-            <div className="kategori">Котегории</div>
-          </div>
-          <div className="col-1">
-            <div className="oNas">О нас</div>
-          </div>
-          <div className="col-1">
-            <div className="oNas">Контакты</div>
-          </div>
-          <div className="col-2">
-            <div className="bookmark">
-              <img
-                src="https://www.flaticon.com/svg/vstatic/svg/786/786251.svg?token=exp=1617880331~hmac=634d832f199bd07d4d1e3fb4ced98b75"
-                alt="bookmarkImg"
-              />
-              <div className="schetchick">1</div>
-            </div>
-          </div>
-          <div className="col-1">
-            <button className="Login">Войти</button>
+          <div className="col-8">
+            <ul className="nav d-flex justify-content-between">
+              <li className="nav-item dropdownButton">
+                <div >
+                   <Dropdown>
+                     <Dropdown.Toggle variant="default" className="dropdown-basic">
+                       Категории рецептов
+                     </Dropdown.Toggle>
+                     <Dropdown.Menu>
+                       <Dropdown.Item onClick={handleClick}>Все рецепты</Dropdown.Item>
+                       <Dropdown.Item onClick={handleClick2}>Мясные</Dropdown.Item>
+                       <Dropdown.Item onClick={handleClick3}>Десерты</Dropdown.Item>
+                       <Dropdown.Item onClick={handleClick4}>Напитки</Dropdown.Item>
+                       <Dropdown.Item onClick={handleClick5}>Салаты</Dropdown.Item>
+                     </Dropdown.Menu>
+                </Dropdown>
+                </div>
+              </li>
+              <li className="nav-item">
+                <div className="oNas">О нас</div>
+              </li>
+              <li className="nav-item">
+                <div className="oNas">Контакты</div>
+              </li>
+              <li className="nav-item">
+                 <FiBookmark
+                   size={25}
+                   style={{marginTop:22}}
+                 />
+                  <div className="schetchick">1</div>
+              </li>
+              <li className="nav-item">
+                <FaUserCircle
+                  size={25}
+                  style={{marginTop:22}}
+                />
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -42,3 +84,4 @@ function Header() {
 }
 
 export default Header;
+

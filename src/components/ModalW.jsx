@@ -25,7 +25,7 @@ function ModalW(props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="head">
-          <div className="nameComm">{props.item.title}</div>
+          <div className="name-comm">{props.item.title}</div>
           <div className="comments"><i>{props.item.comments}</i></div>
           {initComm.map((comm) => {
             return <div><i>{comm.commentText}</i></div>;
@@ -35,10 +35,10 @@ function ModalW(props) {
               type="commit"
               value={commit}
               placeholder="Ваш комментарий"
-              className="input-group-text inputComm"
+              className="input-group-text input-comm"
               onChange={handleChangeComm}
             />
-            <button className="btnComm" onClick={handleAddComm}>
+            <button className="btn-comm" onClick={handleAddComm}>
               отправить
             </button>
           </div>
