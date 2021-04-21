@@ -5,42 +5,38 @@ import Recipes from './Recipes'
 
 function Meat (props) {
   const recipes = useSelector((state) => state.recipes.items);
-  const newrecipes = recipes.filter(recipe => {
-    if(recipe.category==="мясные"){
-      return true
-    }
-    return false
-  })
-  return (
 
+  const newRecipes = recipes.filter(item => item.category === "мясные");
+
+  return (
     <div>
       <div>
         <Route path="/meat/:id?/:title?">
           <Recipes />
         </Route>
       </div>
-      {newrecipes.map(recipe => {
+      {newRecipes.map(item => {
         return (
           <div  style={{ width: "58%" }}
                 className="Recipes justify-content-center m-auto">
             <div className="recipes-block">
               <Route exact path="/meat/:id?">
-                <Link to={`/meat/${recipe.id}/${recipe.title}`}>
+                <Link to={`/meat/${item.id}/${item.title}`}>
               <div className="d-inline-flex">
                 <div className="img mb-3">
-                  <img width={286} height={180} src={recipe.url} alt="img" />
+                  <img width={286} height={180} src={item.url} alt="img" />
                 </div>
                 <div className="d-block p-3 align-self-center">
-                  <h4>{recipe.title}</h4>
+                  <h4>{item.title}</h4>
                   <div className="d-inline d-flex">
-                    <div>{recipe.calories}</div>
+                    <div>{item.calories}</div>
                     <div
                       style={{ borderRight: "1px solid darkgrey" }}
                       className="ml-4 mr-4"
                     >
                       {" "}
                     </div>
-                    <div>{recipe.time}</div>
+                    <div>{item.time}</div>
                   </div>
                 </div>
               </div>

@@ -156,8 +156,12 @@ a:hover {
   color: rgb(244, 67, 54);
 }
 
-.like-one {
+.LikeOne {
   cursor: pointer;
+}
+
+.LikeOne:hover {
+  color: rgb(244, 67, 54);
 }
 
 .name-comm {

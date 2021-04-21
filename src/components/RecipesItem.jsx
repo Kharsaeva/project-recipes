@@ -7,10 +7,10 @@ import ModalW from "./ModalW";
 
 function RecipesItem(props) {
   const dispatch = useDispatch();
+
   const itemDeleting = (id) => {
     dispatch(itemDelete(id));
   };
-
 
   const [modalActive, setModalActive] = useState(false);
 
@@ -23,7 +23,9 @@ function RecipesItem(props) {
   };
 
   const [likeClick, setLikeClick] = useState(props.item.like);
+
   const [likeStatus, setLikeStatus] = useState(false);
+
   const likeActive = () => {
     if (likeStatus === false) {
       setLikeStatus(!likeStatus);

@@ -7,7 +7,7 @@ import { Dropdown } from 'react-bootstrap'
 function Header() {
   const history = useHistory();
   const handleClick = () => {
-    history.push("/allrecipes");
+    history.push("/all-recipes");
 
   }
   const handleClick2 = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { setFilterText } from "../redux/reducers/recipes";
 
 function Search(props) {
@@ -21,7 +21,6 @@ function Search(props) {
           onChange={handleChangeFilter}
         />
       </Form.Group>
-
     </div>
   );
 }

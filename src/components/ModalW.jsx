@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function ModalW(props) {
   const [commit, setCommit] = useState("");
+
   const [initComm, setInitComm] = useState([
     { commentText: "Очень вкусно, всем советую 😋😋" },
   ]);
@@ -25,7 +26,7 @@ function ModalW(props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="head">
-          <div className="name-comm">{props.item.title}</div>
+          <div className="LikeOne">{props.item.title}</div>
           <div className="comments"><i>{props.item.comments}</i></div>
           {initComm.map((comm) => {
             return <div><i>{comm.commentText}</i></div>;

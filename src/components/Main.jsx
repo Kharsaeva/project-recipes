@@ -3,7 +3,6 @@ import Search from "./Search";
 import Slider from "./Slider";
 import "./modal.css";
 import MainRecipes from './MainRecipes'
-import { Route } from 'react-router-dom'
 
 function Main(props) {
   return (

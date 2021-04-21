@@ -59,6 +59,7 @@ function MainRecipesItem (props) {
         </div>
         <div>
           <FiBookmark
+            className="LikeOne"
             size={25}
             fill={props.item.favorite ? "black" : "none"}
             onClick={() => setFavorite(props.item.id, props.item.favorite)}

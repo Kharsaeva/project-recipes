@@ -3,39 +3,39 @@ import { useSelector } from 'react-redux'
 import { Link, Route } from 'react-router-dom'
 import Recipes from './Recipes'
 
-function Allrecipes (recipe) {
+function AllRecipes (recipe) {
   const recipes = useSelector((state) => state.recipes.items);
 
   return (
     <div>
       <div>
-        <Route path="/allrecipes/:id?/:title?">
+        <Route path="/all-recipes/:id?/:title?">
           <Recipes />
         </Route>
       </div>
-      {recipes.map(recipe => {
+      {recipes.map(item => {
         return(
 
           <div  style={{ width: "58%" }}
                 className="Recipes justify-content-center m-auto">
             <div className="recipes-block">
-              <Route exact path="/allrecipes/:id?">
-              <Link to={`/allrecipes/${recipe.id}/${recipe.title}`}>
+              <Route exact path="/all-recipes/:id?">
+              <Link to={`/all-recipes/${item.id}/${item.title}`}>
                 <div className="d-inline-flex">
                   <div className="img mb-3">
-                    <img width={286} height={180} src={recipe.url} alt="img" />
+                    <img width={286} height={180} src={item.url} alt="img" />
                   </div>
                   <div className="d-block p-3 align-self-center">
-                    <h4>{recipe.title}</h4>
+                    <h4>{item.title}</h4>
                     <div className="d-inline d-flex">
-                      <div>{recipe.calories}</div>
+                      <div>{item.calories}</div>
                       <div
                         style={{ borderRight: "1px solid darkgrey" }}
                         className="ml-4 mr-4"
                       >
                         {" "}
                       </div>
-                      <div>{recipe.time}</div>
+                      <div>{item.time}</div>
                     </div>
                   </div>
                 </div>
@@ -53,4 +53,4 @@ function Allrecipes (recipe) {
   )
 }
 
-export default Allrecipes
+export default AllRecipes

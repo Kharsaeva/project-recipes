@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import { useDispatch } from "react-redux";
 import { loadRecipes } from "../redux/reducers/recipes";
 import {Switch, Route} from 'react-router-dom';
-import Allrecipes from './Allrecipes'
+import AllRecipes from './AllRecipes'
 import Meat from './Meat'
 import Desserts from './Desserts'
 import Beverages from './Beverages'
@@ -25,8 +25,8 @@ function App() {
         <Route exact path="/">
           <Main />
         </Route>
-        <Route path="/allrecipes/:id?">
-          <Allrecipes />
+        <Route path="/all-recipes/:id?">
+          <AllRecipes />
         </Route>
         <Route path="/meat/:id?">
           <Meat />

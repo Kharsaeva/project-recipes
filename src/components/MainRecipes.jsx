@@ -1,28 +1,26 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import MainRecipesItem from './MainRecipesItem'
+import React from "react";
+import { useSelector } from "react-redux";
+import MainRecipesItem from "./MainRecipesItem";
 
-function MainRecipes (props) {
+function MainRecipes(props) {
   const recipes = useSelector((state) => state.recipes.items);
-  const newrecipes =recipes.filter(recipe => {
-    if (recipe.category==="напитки")
-   {
-      return true
-    }
-    return false
-  })
+
+  const filter = useSelector((state) => state.recipes.filter);
+
+  const filteredRecipes = recipes.filter(
+    (item) => item.title.toLowerCase().indexOf(filter) > -1
+  );
+
   return (
-  <div
-    style={{ width: "58%" }}
-    className="Recipes justify-content-center m-auto"
-  >
-
-    {newrecipes.map((item) => {
-      return <MainRecipesItem item={item} key={item.id} />;
-    })}
-
-  </div>
-);
+    <div
+      style={{ width: "58%" }}
+      className="Recipes justify-content-center m-auto"
+    >
+      {filteredRecipes.map((item) => {
+        return <MainRecipesItem item={item} key={item.id} />;
+      })}
+    </div>
+  );
 }
 
-export default MainRecipes
+export default MainRecipes;
