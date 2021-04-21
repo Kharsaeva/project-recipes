@@ -14,7 +14,7 @@ function RecipesItem(props) {
 
   const [modalActive, setModalActive] = useState(false);
 
-  const commOpen = () => {
+  const commOpen = (i) => {
     setModalActive(true);
   };
 
@@ -34,7 +34,7 @@ function RecipesItem(props) {
   };
 
   return (
-    <div className="RecipesItem m-auto d-block">
+    <div className="recipes-item m-auto d-block">
       <div className="pb-4">
         <div className="d-inline d-flex pb-4 justify-content-between">
           <img
@@ -60,7 +60,7 @@ function RecipesItem(props) {
         <div>{props.item.cooking}</div>
       </div>
       <div className="d-inline d-flex w-auto p-4">
-        <div className="LikeOne">
+        <div className="like-one">
           <FiThumbsUp
             size={25}
             fill={likeStatus ? "black" : "none"}
@@ -88,7 +88,7 @@ function RecipesItem(props) {
         >
           {" "}
         </div>
-        <div className="LikeOne" onClick={() => commOpen()}>
+        <div className="like-one" onClick={() => commOpen()}>
           <FiMessageCircle size={25} />
         </div>
       </div>

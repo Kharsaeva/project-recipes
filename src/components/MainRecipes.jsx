@@ -14,7 +14,7 @@ function MainRecipes(props) {
   return (
     <div
       style={{ width: "58%" }}
-      className="Recipes justify-content-center m-auto"
+      className="recipes justify-content-center m-auto"
     >
       {filteredRecipes.map((item) => {
         return <MainRecipesItem item={item} key={item.id} />;

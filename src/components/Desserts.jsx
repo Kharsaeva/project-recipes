@@ -17,7 +17,7 @@ function Desserts (props) {
       {newRecipes.map(item => {
         return (
           <div  style={{ width: "58%" }}
-                className="Recipes justify-content-center m-auto">
+                className="recipes justify-content-center m-auto">
             <div className="recipes-block">
               <Route exact path="/desserts/:id?">
                 <Link to={`/desserts/${item.id}/${item.title}`}>

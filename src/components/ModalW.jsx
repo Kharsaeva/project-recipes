@@ -26,7 +26,7 @@ function ModalW(props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="head">
-          <div className="LikeOne">{props.item.title}</div>
+          <div className="like-one">{props.item.title}</div>
           <div className="comments"><i>{props.item.comments}</i></div>
           {initComm.map((comm) => {
             return <div><i>{comm.commentText}</i></div>;

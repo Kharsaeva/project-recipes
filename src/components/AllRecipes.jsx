@@ -17,7 +17,7 @@ function AllRecipes (recipe) {
         return(
 
           <div  style={{ width: "58%" }}
-                className="Recipes justify-content-center m-auto">
+                className="recipes justify-content-center m-auto">
             <div className="recipes-block">
               <Route exact path="/all-recipes/:id?">
               <Link to={`/all-recipes/${item.id}/${item.title}`}>

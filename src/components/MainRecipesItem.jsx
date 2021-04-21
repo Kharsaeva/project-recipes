@@ -25,7 +25,7 @@ function MainRecipesItem (props) {
   };
 
   return (
-    <div className="RecipesItem m-auto d-block">
+    <div className="recipes-item m-auto d-block">
       <div className="pb-4">
         <div className="d-inline d-flex pb-4 justify-content-between">
           <img
@@ -43,7 +43,7 @@ function MainRecipesItem (props) {
       </div>
 
       <div className="d-inline d-flex w-auto p-4">
-        <div className="LikeOne">
+        <div className="like-one">
           <FiThumbsUp
             size={25}
             fill={likeStatus ? "black" : "none"}
@@ -59,7 +59,7 @@ function MainRecipesItem (props) {
         </div>
         <div>
           <FiBookmark
-            className="LikeOne"
+            className="like-one"
             size={25}
             fill={props.item.favorite ? "black" : "none"}
             onClick={() => setFavorite(props.item.id, props.item.favorite)}
@@ -72,7 +72,7 @@ function MainRecipesItem (props) {
         >
           {" "}
         </div>
-        <div className="LikeOne" onClick={() => commOpen()}>
+        <div className="like-one" onClick={() => commOpen()}>
           <FiMessageCircle size={25} />
         </div>
       </div>
