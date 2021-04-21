@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { favoritePatch } from '../../redux/reducers/recipes';
 import { FiBookmark, FiMessageCircle, FiThumbsUp } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
-import ModalW from '../Modal/ModalW';
+import Modal from '../Modal';
 
 function MainRecipesItem(props) {
   const [modalActive, setModalActive] = useState(false);
@@ -78,7 +78,7 @@ function MainRecipesItem(props) {
       <div style={{ borderTop: '1px solid darkgrey' }} className="pb-4">
         {' '}
       </div>
-      <ModalW
+      <Modal
         active={modalActive}
         setActive={setModalActive}
         item={props.item}

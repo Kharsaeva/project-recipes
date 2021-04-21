@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './modal.css';
 
-function ModalW(props) {
+function Modal(props) {
   const [commit, setCommit] = useState('');
   const [initComm, setInitComm] = useState([
     { commentText: 'Очень вкусно, всем советую 😋😋' },
@@ -55,4 +55,4 @@ function ModalW(props) {
   );
 }
 
-export default ModalW;
+export default Modal;

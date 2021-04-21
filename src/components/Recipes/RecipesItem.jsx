@@ -3,7 +3,7 @@ import { itemDelete } from '../../redux/reducers/recipes';
 import React, { useState } from 'react';
 import { FiThumbsUp, FiBookmark, FiMessageCircle } from 'react-icons/fi';
 import { favoritePatch } from '../../redux/reducers/recipes';
-import ModalW from '../Modal/ModalW';
+import ModalW from '../Modal';
 
 function RecipesItem(props) {
   const dispatch = useDispatch();
