@@ -5,12 +5,19 @@ const DELETE_LOAD_START = "delete/load/start";
 const DELETE_LOAD_SUCCESS = "delete/load/success";
 const FAVORITE_SET_START = "favorite/set/start";
 const FAVORITE_SET_SUCCESS = "favorite/set/success";
+const AUTH_STARTED = "auth/started";
+const AUTH_FAILED = "auth/failed";
+const AUTH_SUCCEED = "auth/succeed";
 
 const initialState = {
   items: [],
   filter: "",
   loading: false,
   likeState: false,
+  //Админ понель авторизации
+  token: "",
+  authorizing: false,
+  error: false,
 };
 
 export default function reducer(state = initialState, action) {
@@ -68,6 +75,27 @@ export default function reducer(state = initialState, action) {
           }
           return item;
         }),
+      };
+
+    case AUTH_STARTED:
+      return {
+        ...state,
+        authorizing: true,
+        error: false,
+      };
+
+    case AUTH_SUCCEED:
+      return {
+        ...state,
+        authorizing: false,
+        token: action.payload.token,
+      };
+
+    case AUTH_FAILED:
+      return {
+        ...state,
+        authorizing: false,
+        error: true,
       };
 
     default:
@@ -132,4 +160,26 @@ export const itemDelete = (id) => {
         });
       });
   };
+};
+
+export const loginStart = (login, password) => (dispatch) => {
+  dispatch({ type: AUTH_STARTED });
+
+  fetch("http://localhost:3010/admin")
+    .then((response) => response.json())
+    .then((json) => {
+      const random = Math.random();
+
+      if (random < 0.7) {
+        dispatch({
+          type: AUTH_FAILED,
+          payload: json,
+        });
+      } else {
+        dispatch({
+          type: AUTH_SUCCEED,
+          payload: json,
+        });
+      }
+    });
 };

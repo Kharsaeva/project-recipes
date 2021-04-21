@@ -1,7 +1,7 @@
 import React from "react";
 import { FiBookmark, FaUserCircle } from 'react-icons/all'
 import { Link,  useHistory } from 'react-router-dom'
-import { Dropdown } from 'react-bootstrap'
+import { Dropdown, NavLink } from 'react-bootstrap'
 
 
 function Header() {
@@ -70,10 +70,12 @@ function Header() {
                   <div className="schetchick">1</div>
               </li>
               <li className="nav-item">
-                <FaUserCircle
-                  size={25}
-                  style={{marginTop:22}}
-                />
+                <Link to="/SignIn">
+                  <FaUserCircle
+                    size={25}
+                    style={{marginTop:22}}
+                  />
+                </Link>
               </li>
             </ul>
           </div>
