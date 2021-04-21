@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './modal.css';
 
 function ModalW(props) {
   const [commit, setCommit] = useState('');
