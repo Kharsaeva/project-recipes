@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { favoritePatch } from '../redux/reducers/recipes'
-import { FiBookmark, FiMessageCircle, FiThumbsUp } from 'react-icons/fi'
-import ModalW from './ModalW'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { favoritePatch } from '../redux/reducers/recipes';
+import { FiBookmark, FiMessageCircle, FiThumbsUp } from 'react-icons/fi';
+import ModalW from './ModalW';
+import { useDispatch } from 'react-redux';
 
-function MainRecipesItem (props) {
+function MainRecipesItem(props) {
   const [modalActive, setModalActive] = useState(false);
   const dispatch = useDispatch();
   const commOpen = () => {
@@ -31,7 +31,7 @@ function MainRecipesItem (props) {
           <img
             className="mr-4"
             src={props.item.url}
-            style={{ width: "50%" }}
+            style={{ width: '50%' }}
             alt="img"
           />
           <h2 className="align-self-center">{props.item.title}</h2>
@@ -46,38 +46,37 @@ function MainRecipesItem (props) {
         <div className="like-one">
           <FiThumbsUp
             size={25}
-            fill={likeStatus ? "black" : "none"}
+            fill={likeStatus ? 'black' : 'none'}
             onClick={() => likeActive()}
-          />{" "}
+          />{' '}
           {likeClick}
         </div>
         <div
-          style={{ borderRight: "1px solid darkgrey" }}
+          style={{ borderRight: '1px solid darkgrey' }}
           className="ml-4 mr-4"
         >
-          {" "}
+          {' '}
         </div>
         <div>
           <FiBookmark
             className="like-one"
             size={25}
-            fill={props.item.favorite ? "black" : "none"}
+            fill={props.item.favorite ? 'black' : 'none'}
             onClick={() => setFavorite(props.item.id, props.item.favorite)}
           />
-
         </div>
         <div
-          style={{ borderRight: "1px solid darkgrey" }}
+          style={{ borderRight: '1px solid darkgrey' }}
           className="ml-4 mr-4"
         >
-          {" "}
+          {' '}
         </div>
         <div className="like-one" onClick={() => commOpen()}>
           <FiMessageCircle size={25} />
         </div>
       </div>
-      <div style={{ borderTop: "1px solid darkgrey" }} className="pb-4">
-        {" "}
+      <div style={{ borderTop: '1px solid darkgrey' }} className="pb-4">
+        {' '}
       </div>
       <ModalW
         active={modalActive}
@@ -88,4 +87,4 @@ function MainRecipesItem (props) {
   );
 }
 
-export default MainRecipesItem
+export default MainRecipesItem;

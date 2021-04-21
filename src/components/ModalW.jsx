@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function ModalW(props) {
-  const [commit, setCommit] = useState("");
+  const [commit, setCommit] = useState('');
 
   const [initComm, setInitComm] = useState([
-    { commentText: "Очень вкусно, всем советую 😋😋" },
+    { commentText: 'Очень вкусно, всем советую 😋😋' },
   ]);
 
   const handleChangeComm = (e) => {
@@ -13,23 +13,29 @@ function ModalW(props) {
 
   const handleAddComm = () => {
     setInitComm([...initComm, { commentText: commit }]);
-    setCommit("");
+    setCommit('');
   };
 
   return (
     <div
-      className={props.active ? "modal__modal active" : "modal__modal"}
+      className={props.active ? 'modal__modal active' : 'modal__modal'}
       onClick={() => props.setActive(false)}
     >
       <div
-        className={props.active ? "modal__content active" : "modal__content"}
+        className={props.active ? 'modal__content active' : 'modal__content'}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="head">
           <div className="like-one">{props.item.title}</div>
-          <div className="comments"><i>{props.item.comments}</i></div>
+          <div className="comments">
+            <i>{props.item.comments}</i>
+          </div>
           {initComm.map((comm) => {
-            return <div><i>{comm.commentText}</i></div>;
+            return (
+              <div>
+                <i>{comm.commentText}</i>
+              </div>
+            );
           })}
           <div className="rod">
             <input

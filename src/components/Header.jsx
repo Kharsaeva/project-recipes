@@ -1,25 +1,25 @@
-import React from "react";
-import { FiBookmark, FaUserCircle } from "react-icons/all";
-import { Link, useHistory } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
+import React from 'react';
+import { FiBookmark, FaUserCircle } from 'react-icons/all';
+import { Link, useHistory } from 'react-router-dom';
+import { Dropdown } from 'react-bootstrap';
 
 function Header() {
   const history = useHistory();
   const handleClick = () => {
-    history.push("/all-recipes");
+    history.push('/all-recipes');
   };
   const handleClick2 = () => {
-    history.push("/meat");
+    history.push('/meat');
   };
   const handleClick3 = () => {
-    history.push("/desserts");
+    history.push('/desserts');
   };
 
   const handleClick4 = () => {
-    history.push("/beverages");
+    history.push('/beverages');
   };
   const handleClick5 = () => {
-    history.push("/salads");
+    history.push('/salads');
   };
 
   return (

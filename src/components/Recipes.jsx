@@ -1,7 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import RecipesItem from "./RecipesItem";
-import { useParams } from "react-router-dom";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import RecipesItem from './RecipesItem';
+import { useParams } from 'react-router-dom';
 
 function Recipes(props) {
   const loading = useSelector((state) => state.recipes.loading);
@@ -18,7 +18,7 @@ function Recipes(props) {
 
   return (
     <div
-      style={{ width: "58%" }}
+      style={{ width: '58%' }}
       className="recipes justify-content-center m-auto"
     >
       {newRecipes.map((item) => {
