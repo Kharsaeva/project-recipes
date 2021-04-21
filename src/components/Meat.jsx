@@ -5,7 +5,6 @@ import Recipes from './Recipes';
 
 function Meat(props) {
   const recipes = useSelector((state) => state.recipes.items);
-
   const newRecipes = recipes.filter((item) => item.category === 'мясные');
 
   return (

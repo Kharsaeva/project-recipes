@@ -8,9 +8,11 @@ function Header() {
   const handleClick = () => {
     history.push('/all-recipes');
   };
+
   const handleClick2 = () => {
     history.push('/meat');
   };
+
   const handleClick3 = () => {
     history.push('/desserts');
   };
@@ -18,6 +20,7 @@ function Header() {
   const handleClick4 = () => {
     history.push('/beverages');
   };
+
   const handleClick5 = () => {
     history.push('/salads');
   };

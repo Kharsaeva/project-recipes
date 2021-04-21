@@ -4,9 +4,7 @@ import MainRecipesItem from './MainRecipesItem';
 
 function MainRecipes(props) {
   const recipes = useSelector((state) => state.recipes.items);
-
   const filter = useSelector((state) => state.recipes.filter);
-
   const filteredRecipes = recipes.filter(
     (item) => item.title.toLowerCase().indexOf(filter) > -1,
   );

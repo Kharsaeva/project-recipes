@@ -5,9 +5,7 @@ import { setFilterText } from '../redux/reducers/recipes';
 
 function Search(props) {
   const dispatch = useDispatch();
-
   const filter = useSelector((state) => state.recipes.filter);
-
   const handleChangeFilter = (event) => {
     dispatch(setFilterText(event.target.value));
   };

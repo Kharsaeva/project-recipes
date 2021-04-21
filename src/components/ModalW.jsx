@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 function ModalW(props) {
   const [commit, setCommit] = useState('');
-
   const [initComm, setInitComm] = useState([
     { commentText: 'Очень вкусно, всем советую 😋😋' },
   ]);
