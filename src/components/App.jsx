@@ -14,6 +14,8 @@ import Salads from './Salads'
 function App() {
   const dispatch = useDispatch();
 
+
+
   useEffect(() => {
     dispatch(loadRecipes());
   }, [dispatch]);
