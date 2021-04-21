@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { favoritePatch } from '../redux/reducers/recipes';
+import { favoritePatch } from '../../redux/reducers/recipes';
 import { FiBookmark, FiMessageCircle, FiThumbsUp } from 'react-icons/fi';
-import ModalW from './ModalW';
 import { useDispatch } from 'react-redux';
+import ModalW from '../Modal/ModalW';
 
 function MainRecipesItem(props) {
   const [modalActive, setModalActive] = useState(false);

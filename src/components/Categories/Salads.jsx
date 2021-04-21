@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
-import Recipes from './Recipes';
+import Recipes from '../Recipes/Recipes';
 
 function Salads(props) {
   const recipes = useSelector((state) => state.recipes.items);

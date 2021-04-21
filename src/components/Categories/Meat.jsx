@@ -1,27 +1,28 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
-import Recipes from './Recipes';
+import Recipes from '../Recipes/Recipes';
 
-function AllRecipes(recipe) {
+function Meat(props) {
   const recipes = useSelector((state) => state.recipes.items);
+  const newRecipes = recipes.filter((item) => item.category === 'мясные');
 
   return (
     <div>
       <div>
-        <Route path="/all-recipes/:id?/:title?">
+        <Route path="/meat/:id?/:title?">
           <Recipes />
         </Route>
       </div>
-      {recipes.map((item) => {
+      {newRecipes.map((item) => {
         return (
           <div
             style={{ width: '58%' }}
             className="recipes justify-content-center m-auto"
           >
             <div className="recipes-block">
-              <Route exact path="/all-recipes/:id?">
-                <Link to={`/all-recipes/${item.id}/${item.title}`}>
+              <Route exact path="/meat/:id?">
+                <Link to={`/meat/${item.id}/${item.title}`}>
                   <div className="d-inline-flex">
                     <div className="img mb-3">
                       <img width={286} height={180} src={item.url} alt="img" />
@@ -56,4 +57,4 @@ function AllRecipes(recipe) {
   );
 }
 
-export default AllRecipes;
+export default Meat;

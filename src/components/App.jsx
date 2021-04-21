@@ -5,11 +5,11 @@ import Footer from './Footer';
 import { useDispatch } from 'react-redux';
 import { loadRecipes } from '../redux/reducers/recipes';
 import { Switch, Route } from 'react-router-dom';
-import AllRecipes from './AllRecipes';
-import Meat from './Meat';
-import Desserts from './Desserts';
-import Beverages from './Beverages';
-import Salads from './Salads';
+import AllRecipes from './Categories/AllRecipes';
+import Meat from './Categories/Meat';
+import Desserts from './Categories/Desserts';
+import Beverages from './Categories/Beverages';
+import Salads from './Categories/Salads';
 
 function App() {
   const dispatch = useDispatch();

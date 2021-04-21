@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
-import Recipes from './Recipes';
+import Recipes from '../Recipes/Recipes';
 
-function Desserts(props) {
+function Beverages(props) {
   const recipes = useSelector((state) => state.recipes.items);
-  const newRecipes = recipes.filter((item) => item.category === 'десерты');
+  const newRecipes = recipes.filter((item) => item.category === 'напитки');
 
   return (
     <div>
       <div>
-        <Route path="/desserts/:id?/:title?">
+        <Route path="/beverages/:id?/:title?">
           <Recipes />
         </Route>
       </div>
@@ -21,8 +21,8 @@ function Desserts(props) {
             className="recipes justify-content-center m-auto"
           >
             <div className="recipes-block">
-              <Route exact path="/desserts/:id?">
-                <Link to={`/desserts/${item.id}/${item.title}`}>
+              <Route exact path="/beverages/:id?">
+                <Link to={`/beverages/${item.id}/${item.title}`}>
                   <div className="d-inline-flex">
                     <div className="img mb-3">
                       <img width={286} height={180} src={item.url} alt="img" />
@@ -57,4 +57,4 @@ function Desserts(props) {
   );
 }
 
-export default Desserts;
+export default Beverages;
