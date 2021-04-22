@@ -1,7 +1,9 @@
 import React from "react";
 import { FiBookmark, FaUserCircle } from 'react-icons/all'
-import { Link,  useHistory } from 'react-router-dom'
+import { Link, Switch, useHistory } from 'react-router-dom'
 import { Dropdown, NavLink } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
+import { Redirect } from 'react-router'
 
 
 function Header() {
@@ -21,6 +23,18 @@ function Header() {
   }
   const handleClick5 = () => {
     history.push("/salads");
+  }
+  const token = useSelector((state) => state.recipes.token);
+  let routes;
+
+  if (token) {
+    routes = <Redirect to="/" />;
+  } else {
+    routes = (
+      <Switch>
+        <Redirect to="/SignIn" />
+      </Switch>
+    );
   }
 
   return (
@@ -74,6 +88,7 @@ function Header() {
                   <FaUserCircle
                     size={25}
                     style={{marginTop:22}}
+                    onClick={routes}
                   />
                 </Link>
               </li>

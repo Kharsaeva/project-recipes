@@ -11,31 +11,16 @@ import Desserts from "./Desserts";
 import Beverages from "./Beverages";
 import Salads from "./Salads";
 import SignIn from "./SignIn";
-import { Redirect } from "react-router";
 
 function App() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.recipes.token);
 
   useEffect(() => {
     dispatch(loadRecipes());
   }, [dispatch]);
 
-  let routes;
-
-  if (token) {
-    routes = <Redirect to="/" />;
-  } else {
-    routes = (
-      <Switch>
-        <Redirect to="/SignIn" />
-      </Switch>
-    );
-  }
-
   return (
     <div className="container-lg mb-5">
-      {routes}
       <Switch>
         <Route path="/SignIn">
           <SignIn />
