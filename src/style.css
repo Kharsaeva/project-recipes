@@ -131,6 +131,9 @@ li:hover {
   right: 0;
   background-color: white;
 }
+.categories {
+  margin-top: 50px;
+}
 
 .number {
   padding: 18px 0;
