@@ -11,6 +11,7 @@ import Desserts from "./Desserts";
 import Beverages from "./Beverages";
 import Salads from "./Salads";
 import SignIn from "./SignIn";
+import { Redirect } from 'react-router'
 
 function App() {
   const dispatch = useDispatch();
@@ -19,39 +20,57 @@ function App() {
     dispatch(loadRecipes());
   }, [dispatch]);
 
+  const token = useSelector((state) => state.recipes.token);
+  let routes;
+
+  if (token) {
+    routes = (
+      <Switch>
+        <Redirect exact to="/allrecipes" />
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Redirect to="/SignIn" />
+      </Switch>
+    );
+  }
+
   return (
     <div className="container-lg mb-5">
+      {routes}
       <Switch>
         <Route path="/SignIn">
           <SignIn />
         </Route>
         <Route exact path="/">
-          <Header />
+          <Header routes={routes}/>
           <Main />
           <Footer />
         </Route>
         <Route path="/allrecipes/:id?">
-          <Header />
+          <Header routes={routes}/>
           <Allrecipes />
           <Footer />
         </Route>
         <Route path="/meat/:id?">
-          <Header />
+          <Header routes={routes}/>
           <Meat />
           <Footer />
         </Route>
         <Route path="/desserts/:id?">
-          <Header />
+          <Header routes={routes}/>
           <Desserts />
           <Footer />
         </Route>
         <Route path="/beverages/:id?">
-          <Header />
+          <Header routes={routes}/>
           <Beverages />
           <Footer />
         </Route>
         <Route path="/salads/:id?">
-          <Header />
+          <Header routes={routes}/>
           <Salads />
           <Footer />
         </Route>
