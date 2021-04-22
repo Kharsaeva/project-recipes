@@ -39,10 +39,10 @@ function App() {
 
   return (
     <div className="container-lg mb-5">
-      {routes}
       <Switch>
         <Route path="/SignIn">
           <SignIn />
+          {routes}
         </Route>
         <Route exact path="/">
           <Header routes={routes}/>
