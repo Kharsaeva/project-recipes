@@ -77,7 +77,7 @@ export default function reducer(state = initialState, action) {
 
 export const setFilterText = (text) => {
   return {
-    type: 'filter/set',
+    type: FILTER_SET,
     payload: text,
   };
 };

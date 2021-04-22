@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { favoritePatch } from '../../redux/reducers/recipes';
+import { favoritePatch } from '../../redux/recipes';
 import { FiBookmark, FiMessageCircle, FiThumbsUp } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal';

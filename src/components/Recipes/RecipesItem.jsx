@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { itemDelete } from '../../redux/reducers/recipes';
+import { itemDelete } from '../../redux/recipes';
 import React, { useState } from 'react';
 import { FiThumbsUp, FiBookmark, FiMessageCircle } from 'react-icons/fi';
-import { favoritePatch } from '../../redux/reducers/recipes';
+import { favoritePatch } from '../../redux/recipes';
 import ModalW from '../Modal';
 
 function RecipesItem(props) {
