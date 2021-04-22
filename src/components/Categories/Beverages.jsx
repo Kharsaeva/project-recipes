@@ -4,13 +4,13 @@ import { Link, Route } from 'react-router-dom';
 import Recipes from '../Recipes/Recipes';
 
 function Beverages(props) {
-  const recipes = useSelector((state) => state.recipes.items);
+  const recipes = useSelector((state) => state.items);
   const newRecipes = recipes.filter((item) => item.category === 'напитки');
 
   return (
     <div>
       <div>
-        <Route path="/beverages/:id?/:title?">
+        <Route path="/categories/beverages/:id?/:title?">
           <Recipes />
         </Route>
       </div>
@@ -21,8 +21,8 @@ function Beverages(props) {
             className="recipes justify-content-center m-auto"
           >
             <div className="recipes-block">
-              <Route exact path="/beverages/:id?">
-                <Link to={`/beverages/${item.id}/${item.title}`}>
+              <Route exact path="/categories/beverages/:id?">
+                <Link to={`/categories/beverages/${item.id}/${item.title}`}>
                   <div className="d-inline-flex">
                     <div className="img mb-3">
                       <img width={286} height={180} src={item.url} alt="img" />

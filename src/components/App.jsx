@@ -3,9 +3,9 @@ import Main from './Main';
 import React, { useEffect } from 'react';
 import Footer from './Footer';
 import { useDispatch } from 'react-redux';
-import { loadRecipes } from '../redux/reducers/recipes';
+import { loadRecipes } from '../redux/recipes';
 import Categories from './Categories';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,10 +17,14 @@ function App() {
   return (
     <div className="container-lg mb-5">
       <Header />
-      <Categories />
-      <Route exact path="/">
-        <Main />
-      </Route>
+      <Switch>
+        <Route path="/categories">
+          <Categories />
+        </Route>
+        <Route exact path="/">
+          <Main />
+        </Route>
+      </Switch>
       <Footer />
     </div>
   );

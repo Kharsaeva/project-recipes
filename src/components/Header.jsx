@@ -6,23 +6,23 @@ import { Dropdown } from 'react-bootstrap';
 function Header() {
   const history = useHistory();
   const handleClick = () => {
-    history.push('/all-recipes');
+    history.push('/categories/all-recipes');
   };
 
   const handleClick2 = () => {
-    history.push('/meat');
+    history.push('/categories/meat');
   };
 
   const handleClick3 = () => {
-    history.push('/desserts');
+    history.push('/categories/desserts');
   };
 
   const handleClick4 = () => {
-    history.push('/beverages');
+    history.push('/categories/beverages');
   };
 
   const handleClick5 = () => {
-    history.push('/salads');
+    history.push('/categories/salads');
   };
 
   return (
