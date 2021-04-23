@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search';
 import Slider from './Slider';
 import MainRecipes from './Recipes/MainRecipes';
+import { Route } from 'react-router-dom';
 
 function Main(props) {
   return (

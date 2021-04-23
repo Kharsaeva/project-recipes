@@ -58,7 +58,17 @@ li:hover {
 
 .main {
   margin-top: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 150px;
+}
+.blockMain {
+  text-align: center;
+  background-color: gainsboro;
+  height: 80px;
+  color: black;
+  font-size: 26px;
+  line-height: 80px;
+  margin-top: 80px;
+  border-radius: 10px;
 }
 
 .steak {
