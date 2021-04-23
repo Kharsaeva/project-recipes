@@ -11,7 +11,7 @@ function Search(props) {
   };
 
   return (
-    <div style={{ width: '75%' }} className="search m-auto pt-3">
+    <div style={{ width: '75%' }} className="search  m-auto pt-3">
       <Form.Group className="d-flex">
         <Form.Control
           placeholder="Найти нужный рецепт..."
