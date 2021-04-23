@@ -1,9 +1,9 @@
-import React from "react";
-import { Carousel } from "react-bootstrap";
+import React from 'react';
+import { Carousel } from 'react-bootstrap';
 
 function Slider(props) {
   return (
-    <div style={{ width: "75%" }} className="slider m-auto">
+    <div style={{ width: '75%' }} className="slider m-auto">
       <Carousel fade>
         <Carousel.Item>
           <img
@@ -23,7 +23,7 @@ function Slider(props) {
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Десерты</h3>{" "}
+            <h3>Десерты</h3>{' '}
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>

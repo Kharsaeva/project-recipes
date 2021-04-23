@@ -1,17 +1,13 @@
-import Header from "./Header";
-import Main from "./Main";
-import React, { useEffect } from "react";
-import Footer from "./Footer";
-import { useDispatch, useSelector } from "react-redux";
-import { loadRecipes } from "../redux/reducers/recipes";
-import { Switch, Route } from "react-router-dom";
-import Allrecipes from "./Allrecipes";
-import Meat from "./Meat";
-import Desserts from "./Desserts";
-import Beverages from "./Beverages";
-import Salads from "./Salads";
-import SignIn from "./SignIn";
-import { Redirect } from 'react-router'
+import Header from './Header';
+import Main from './Main';
+import React, { useEffect } from 'react';
+import Footer from './Footer';
+import { useDispatch, useSelector } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
+import SignIn from './SignIn';
+import { Redirect } from 'react-router';
+import { loadRecipes } from '../redux/recipes';
+import Categories from './Categories';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,13 +16,13 @@ function App() {
     dispatch(loadRecipes());
   }, [dispatch]);
 
-  const token = useSelector((state) => state.recipes.token);
+  const token = useSelector((state) => state.token);
   let routes;
 
   if (token) {
     routes = (
       <Switch>
-        <Redirect exact to="/allrecipes" />
+        <Redirect exact to="/categories/all-recipes/:id?" />
       </Switch>
     );
   } else {
@@ -44,34 +40,14 @@ function App() {
           <SignIn />
           {routes}
         </Route>
+        <Route path="/categories">
+          <Header routes={routes} />
+          <Categories />
+          <Footer />
+        </Route>
         <Route exact path="/">
-          <Header routes={routes}/>
+          <Header routes={routes} />
           <Main />
-          <Footer />
-        </Route>
-        <Route path="/allrecipes/:id?">
-          <Header routes={routes}/>
-          <Allrecipes />
-          <Footer />
-        </Route>
-        <Route path="/meat/:id?">
-          <Header routes={routes}/>
-          <Meat />
-          <Footer />
-        </Route>
-        <Route path="/desserts/:id?">
-          <Header routes={routes}/>
-          <Desserts />
-          <Footer />
-        </Route>
-        <Route path="/beverages/:id?">
-          <Header routes={routes}/>
-          <Beverages />
-          <Footer />
-        </Route>
-        <Route path="/salads/:id?">
-          <Header routes={routes}/>
-          <Salads />
           <Footer />
         </Route>
       </Switch>

@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loginStart } from "../redux/reducers/recipes";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { loginStart } from '../redux/recipes';
 
 function SignIn(props) {
   const dispatch = useDispatch();
 
-  const [login, setLogin] = useState("");
-  const [pass, setPass] = useState("");
+  const [login, setLogin] = useState('');
+  const [pass, setPass] = useState('');
 
   const handleClick = () => {
-    dispatch(loginStart(login, pass));
+    dispatch(loginStart());
   };
 
-  const error = useSelector((state) => state.recipes.error);
-  const authorizing = useSelector((state) => state.recipes.authorizing);
+  const error = useSelector((state) => state.error);
+  const authorizing = useSelector((state) => state.authorizing);
 
   return (
     <div>
       <div className="container h-100">
         <div
           className="row justify-content-center align-items-center"
-          style={{ height: "100vh" }}
+          style={{ height: '100vh' }}
         >
           <div className="col-5 shadow px-5 py-3 rounded">
             <Link exact to="/">

@@ -1,21 +1,21 @@
-const RECIPES_LOAD_START = "recipes/load/start";
-const RECIPES_LOAD_SUCCESS = "recipes/load/success";
-const FILTER_SET = "filter/set";
-const DELETE_LOAD_START = "delete/load/start";
-const DELETE_LOAD_SUCCESS = "delete/load/success";
-const FAVORITE_SET_START = "favorite/set/start";
-const FAVORITE_SET_SUCCESS = "favorite/set/success";
-const AUTH_STARTED = "auth/started";
-const AUTH_FAILED = "auth/failed";
-const AUTH_SUCCEED = "auth/succeed";
+const RECIPES_LOAD_START = 'recipes/load/start';
+const RECIPES_LOAD_SUCCESS = 'recipes/load/success';
+const FILTER_SET = 'filter/set';
+const DELETE_LOAD_START = 'delete/load/start';
+const DELETE_LOAD_SUCCESS = 'delete/load/success';
+const FAVORITE_SET_START = 'favorite/set/start';
+const FAVORITE_SET_SUCCESS = 'favorite/set/success';
+const AUTH_STARTED = 'auth/started';
+const AUTH_FAILED = 'auth/failed';
+const AUTH_SUCCEED = 'auth/succeed';
 
 const initialState = {
   items: [],
-  filter: "",
+  filter: '',
   loading: false,
   likeState: false,
   //Админ понель авторизации
-  token: "",
+  token: '',
   authorizing: false,
   error: false,
 };
@@ -105,7 +105,7 @@ export default function reducer(state = initialState, action) {
 
 export const setFilterText = (text) => {
   return {
-    type: "filter/set",
+    type: FILTER_SET,
     payload: text,
   };
 };
@@ -114,7 +114,7 @@ export const loadRecipes = () => {
   return (dispatch) => {
     dispatch({ type: RECIPES_LOAD_START });
 
-    fetch("http://localhost:3010/recipes")
+    fetch('http://localhost:3010/recipes')
       .then((response) => response.json())
       .then((json) => {
         dispatch({
@@ -131,9 +131,9 @@ export function favoritePatch(id, favorite) {
       type: FAVORITE_SET_START,
     });
     fetch(`http://localhost:3010/recipes/${id}`, {
-      method: "PATCH",
+      method: 'PATCH',
       body: JSON.stringify({ favorite: !favorite }),
-      headers: { "Content-type": "application/json" },
+      headers: { 'Content-type': 'application/json' },
     })
       .then((response) => response.json())
       .then(() => {
@@ -149,8 +149,8 @@ export const itemDelete = (id) => {
   return function (dispatch) {
     dispatch({ type: DELETE_LOAD_START, payload: id });
 
-    fetch("http://localhost:3010/recipes", {
-      method: "DELETE",
+    fetch('http://localhost:3010/recipes', {
+      method: 'DELETE',
     })
       .then((response) => response.json())
       .then(() => {
@@ -162,15 +162,15 @@ export const itemDelete = (id) => {
   };
 };
 
-export const loginStart = (login, password) => (dispatch) => {
+export const loginStart = () => (dispatch) => {
   dispatch({ type: AUTH_STARTED });
 
-  fetch("http://localhost:3010/admin")
+  fetch('http://localhost:3010/admin')
     .then((response) => response.json())
     .then((json) => {
       const random = Math.random();
 
-      if (random < 0.7) {
+      if (random < 0.4) {
         dispatch({
           type: AUTH_FAILED,
           payload: json,

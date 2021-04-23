@@ -28,7 +28,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "dev": "concurrently \"npm start\" \"json-server --watch db.json --port 3010\""
+    "dev": "concurrently \"npm start\" \"json-server --watch db.json --port 3010\"",
+    "prettify": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +57,6 @@
     "prettier": "^2.2.1"
   },
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,jsx,css,md}": "prettier --write"
   }
 }

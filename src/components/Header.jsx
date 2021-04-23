@@ -1,44 +1,48 @@
-import React from "react";
-import { FiBookmark, FaUserCircle } from "react-icons/all";
-import { Link, Switch, useHistory } from "react-router-dom";
-import { Dropdown, NavLink } from "react-bootstrap";
+import React from 'react';
+import { FiBookmark, FaUserCircle } from 'react-icons/all';
+import { Link, useHistory } from 'react-router-dom';
+import { Dropdown } from 'react-bootstrap';
 
-function Header(props) {
+function Header() {
   const history = useHistory();
   const handleClick = () => {
-    history.push("/allrecipes");
+    history.push('/categories/all-recipes');
   };
+
   const handleClick2 = () => {
-    history.push("/meat");
+    history.push('/categories/meat');
   };
+
   const handleClick3 = () => {
-    history.push("/desserts");
+    history.push('/categories/desserts');
   };
+
   const handleClick4 = () => {
-    history.push("/beverages");
+    history.push('/categories/beverages');
   };
+
   const handleClick5 = () => {
-    history.push("/salads");
+    history.push('/categories/salads');
   };
 
   return (
     <div className="header">
       <div className="container-lg">
-        <div className="row  justify-content-between">
+        <div className="row justify-content-between">
           <div className="col-3">
             <div className="logo">
               <Link to="/">
                 <img
                   src="https://im0-tub-ru.yandex.net/i?id=77b7ea8c917a0bde08b581414328f261&n=13"
-                  alt="Logo"
-                  className="logoImg"
+                  alt="logo"
+                  className="logo-img"
                 />
               </Link>
             </div>
           </div>
           <div className="col-8">
             <ul className="nav d-flex justify-content-between">
-              <li className="nav-item dropdownButton">
+              <li className="nav-item dropdown-button">
                 <div>
                   <Dropdown>
                     <Dropdown.Toggle
@@ -68,18 +72,18 @@ function Header(props) {
                 </div>
               </li>
               <li className="nav-item">
-                <div className="oNas">О нас</div>
+                <div className="about-us">О нас</div>
               </li>
               <li className="nav-item">
-                <div className="oNas">Контакты</div>
+                <div className="about-us">Контакты</div>
               </li>
               <li className="nav-item">
                 <FiBookmark size={25} style={{ marginTop: 22 }} />
-                <div className="schetchick">1</div>
+                <div className="counter">1</div>
               </li>
               <li className="nav-item">
                 <Link to="/SignIn">
-                  <FaUserCircle size={25} style={{ marginTop: 22 }} onClick={props.routes}/>
+                  <FaUserCircle size={25} style={{ marginTop: 22 }} />
                 </Link>
               </li>
             </ul>

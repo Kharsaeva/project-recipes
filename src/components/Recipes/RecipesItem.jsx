@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
-import { itemDelete } from "../redux/reducers/recipes";
-import React, { useState } from "react";
-import { FiThumbsUp, FiBookmark, FiMessageCircle } from "react-icons/fi";
-import { favoritePatch } from "../redux/reducers/recipes";
-import ModalW from "./ModalW";
+import { useDispatch, useSelector } from 'react-redux';
+import { itemDelete } from '../../redux/recipes';
+import React, { useState } from 'react';
+import { FiThumbsUp, FiBookmark, FiMessageCircle } from 'react-icons/fi';
+import { favoritePatch } from '../../redux/recipes';
+import ModalW from '../Modal';
 
 function RecipesItem(props) {
   const dispatch = useDispatch();
@@ -11,10 +11,8 @@ function RecipesItem(props) {
     dispatch(itemDelete(id));
   };
 
-
   const [modalActive, setModalActive] = useState(false);
-
-  const commOpen = () => {
+  const commOpen = (i) => {
     setModalActive(true);
   };
 
@@ -31,20 +29,27 @@ function RecipesItem(props) {
     }
   };
 
+  const token = useSelector((state) => state.token);
+
   return (
-    <div className="RecipesItem m-auto d-block">
+    <div className="recipes-item m-auto d-block">
       <div className="pb-4">
         <div className="d-inline d-flex pb-4 justify-content-between">
           <img
             className="mr-4"
             src={props.item.url}
-            style={{ width: "50%" }}
+            style={{ width: '50%' }}
             alt="img"
           />
           <h2 className="align-self-center">{props.item.title}</h2>
-          <button className="exit" onClick={() => itemDeleting(props.item.id)}>
-            ❌
-          </button>
+          {token && (
+            <button
+              className="exit"
+              onClick={() => itemDeleting(props.item.id)}
+            >
+              ❌
+            </button>
+          )}
         </div>
         <div className="d-block align-self-center pb-4">
           <span className="mr-5">Каллорийность: {props.item.calories}</span>
@@ -58,40 +63,39 @@ function RecipesItem(props) {
         <div>{props.item.cooking}</div>
       </div>
       <div className="d-inline d-flex w-auto p-4">
-        <div className="LikeOne">
+        <div className="like-one">
           <FiThumbsUp
             size={25}
-            fill={likeStatus ? "black" : "none"}
+            fill={likeStatus ? 'black' : 'none'}
             onClick={() => likeActive()}
-          />{" "}
+          />{' '}
           {likeClick}
         </div>
         <div
-          style={{ borderRight: "1px solid darkgrey" }}
+          style={{ borderRight: '1px solid darkgrey' }}
           className="ml-4 mr-4"
         >
-          {" "}
+          {' '}
         </div>
         <div>
           <FiBookmark
             size={25}
-            fill={props.item.favorite ? "black" : "none"}
+            fill={props.item.favorite ? 'black' : 'none'}
             onClick={() => setFavorite(props.item.id, props.item.favorite)}
           />
-
         </div>
         <div
-          style={{ borderRight: "1px solid darkgrey" }}
+          style={{ borderRight: '1px solid darkgrey' }}
           className="ml-4 mr-4"
         >
-          {" "}
+          {' '}
         </div>
-        <div className="LikeOne" onClick={() => commOpen()}>
+        <div className="like-one" onClick={() => commOpen()}>
           <FiMessageCircle size={25} />
         </div>
       </div>
-      <div style={{ borderTop: "1px solid darkgrey" }} className="pb-4">
-        {" "}
+      <div style={{ borderTop: '1px solid darkgrey' }} className="pb-4">
+        {' '}
       </div>
       <ModalW
         active={modalActive}
