@@ -23,10 +23,10 @@ function RecipesItem(props) {
   const [likeClick, setLikeClick] = useState(props.item.like);
   const [likeStatus, setLikeStatus] = useState(false);
   const likeActive = () => {
+    setLikeStatus(!likeStatus);
     if (likeStatus === false) {
-      setLikeStatus(!likeStatus);
       setLikeClick(likeClick + 1);
-    }
+    } else setLikeClick(likeClick - 1);
   };
 
   const token = useSelector((state) => state.token);

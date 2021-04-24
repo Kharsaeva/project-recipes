@@ -8,6 +8,7 @@ import SignIn from './SignIn';
 import { Redirect } from 'react-router';
 import { loadRecipes } from '../redux/recipes';
 import Categories from './Categories';
+import Bookmark from './Bookmark';
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +49,11 @@ function App() {
         <Route exact path="/">
           <Header routes={routes} />
           <Main />
+          <Footer />
+        </Route>
+        <Route path="/bookmark">
+          <Header />
+          <Bookmark />
           <Footer />
         </Route>
       </Switch>

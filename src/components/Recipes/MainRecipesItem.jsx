@@ -3,7 +3,7 @@ import { favoritePatch } from '../../redux/recipes';
 import { FiBookmark, FiMessageCircle, FiThumbsUp } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function MainRecipesItem(props) {
   const [modalActive, setModalActive] = useState(false);
@@ -19,10 +19,10 @@ function MainRecipesItem(props) {
   const [likeClick, setLikeClick] = useState(props.item.like);
   const [likeStatus, setLikeStatus] = useState(false);
   const likeActive = () => {
+    setLikeStatus(!likeStatus);
     if (likeStatus === false) {
-      setLikeStatus(!likeStatus);
       setLikeClick(likeClick + 1);
-    }
+    } else setLikeClick(likeClick - 1);
   };
 
   return (
