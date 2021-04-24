@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiBookmark, FaUserCircle } from 'react-icons/all';
+import { FiBookmark, FaUserCircle, FiArrowRightCircle } from 'react-icons/all';
 import { Link, useHistory } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -95,12 +95,12 @@ function Header() {
                 </Link>
               </li>
               {token && (
-                <li
-                  className="nav-item"
-                  style={{ marginTop: 22 }}
-                  onClick={logout}
-                >
-                  🚪
+                <li className="nav-item">
+                  <FiArrowRightCircle
+                    size={25}
+                    style={{ marginTop: 22 }}
+                    onClick={logout}
+                  />
                 </li>
               )}
             </ul>
