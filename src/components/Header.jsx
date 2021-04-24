@@ -1,10 +1,14 @@
 import React from 'react';
-import { FiBookmark, FaUserCircle } from 'react-icons/all';
+import { FiBookmark, FaUserCircle, FiArrowRightCircle } from 'react-icons/all';
 import { Link, useHistory } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutStart } from '../redux/recipes';
 
 function Header() {
+  const dispatch = useDispatch();
   const history = useHistory();
+  const token = useSelector((state) => state.token);
   const handleClick = () => {
     history.push('/categories/all-recipes');
   };
@@ -25,6 +29,10 @@ function Header() {
     history.push('/categories/salads');
   };
 
+  const logout = () => {
+    dispatch(logoutStart());
+  };
+
   return (
     <div className="header">
       <div className="container-lg">
@@ -40,7 +48,7 @@ function Header() {
               </Link>
             </div>
           </div>
-          <div className="col-8">
+          <div className="col-9">
             <ul className="nav d-flex justify-content-between">
               <li className="nav-item dropdown-button">
                 <div>
@@ -87,6 +95,15 @@ function Header() {
                   <FaUserCircle size={25} style={{ marginTop: 22 }} />
                 </Link>
               </li>
+              {token && (
+                <li className="nav-item">
+                  <FiArrowRightCircle
+                    size={25}
+                    style={{ marginTop: 22 }}
+                    onClick={logout}
+                  />
+                </li>
+              )}
             </ul>
           </div>
         </div>

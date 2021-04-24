@@ -8,6 +8,7 @@ const FAVORITE_SET_SUCCESS = 'favorite/set/success';
 const AUTH_STARTED = 'auth/started';
 const AUTH_FAILED = 'auth/failed';
 const AUTH_SUCCEED = 'auth/succeed';
+const AUTH_LOGOUT = 'auth/logout';
 
 const initialState = {
   items: [],
@@ -15,7 +16,7 @@ const initialState = {
   loading: false,
   likeState: false,
   //Админ понель авторизации
-  token: '',
+  token: localStorage.getItem('auth-token'),
   authorizing: false,
   error: false,
 };
@@ -98,6 +99,12 @@ export default function reducer(state = initialState, action) {
         error: true,
       };
 
+    case AUTH_LOGOUT:
+      return {
+        ...state,
+        token: null,
+      };
+
     default:
       return state;
   }
@@ -176,10 +183,20 @@ export const loginStart = () => (dispatch) => {
           payload: json,
         });
       } else {
+        localStorage.setItem('auth-token', json.token);
+
         dispatch({
           type: AUTH_SUCCEED,
           payload: json,
         });
       }
     });
+};
+
+export const logoutStart = () => {
+  localStorage.removeItem('auth-token');
+
+  return {
+    type: AUTH_LOGOUT,
+  };
 };
