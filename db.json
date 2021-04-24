@@ -260,5 +260,10 @@
       "category": "салаты",
       "calories": "715 ккал"
     }
-  ]
+  ],
+  "admin": {
+    "login": "admin",
+    "password": "password",
+    "token": "token"
+  }
 }

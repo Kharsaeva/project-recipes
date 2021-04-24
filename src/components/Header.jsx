@@ -82,7 +82,9 @@ function Header() {
                 <div className="counter">1</div>
               </li>
               <li className="nav-item">
-                <FaUserCircle size={25} style={{ marginTop: 22 }} />
+                <Link to="/SignIn">
+                  <FaUserCircle size={25} style={{ marginTop: 22 }} />
+                </Link>
               </li>
             </ul>
           </div>

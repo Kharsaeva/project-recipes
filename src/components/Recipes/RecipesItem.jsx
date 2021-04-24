@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { itemDelete } from '../../redux/recipes';
 import React, { useState } from 'react';
 import { FiThumbsUp, FiBookmark, FiMessageCircle } from 'react-icons/fi';
@@ -29,6 +29,8 @@ function RecipesItem(props) {
     }
   };
 
+  const token = useSelector((state) => state.token);
+
   return (
     <div className="recipes-item m-auto d-block">
       <div className="pb-4">
@@ -40,9 +42,14 @@ function RecipesItem(props) {
             alt="img"
           />
           <h2 className="align-self-center">{props.item.title}</h2>
-          <button className="exit" onClick={() => itemDeleting(props.item.id)}>
-            ❌
-          </button>
+          {token && (
+            <button
+              className="exit"
+              onClick={() => itemDeleting(props.item.id)}
+            >
+              ❌
+            </button>
+          )}
         </div>
         <div className="d-block align-self-center pb-4">
           <span className="mr-5">Каллорийность: {props.item.calories}</span>
