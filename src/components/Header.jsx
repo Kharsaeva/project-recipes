@@ -78,8 +78,9 @@ function Header() {
                 <div className="about-us">Контакты</div>
               </li>
               <li className="nav-item">
-                <FiBookmark size={25} style={{ marginTop: 22 }} />
-                <div className="counter">1</div>
+                <Link to="/Bookmark">
+                  <FiBookmark size={25} style={{ marginTop: 22 }} />
+                </Link>
               </li>
               <li className="nav-item">
                 <Link to="/SignIn">
