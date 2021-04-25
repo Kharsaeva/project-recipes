@@ -1,9 +1,9 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { itemDelete } from '../../redux/reducers/recipes';
 import React, { useState } from 'react';
 import { FiThumbsUp, FiBookmark, FiMessageCircle } from 'react-icons/fi';
-import { favoritePatch } from '../../redux/reducers/recipes';
 import ModalW from '../Modal';
+import { favoritePatch } from '../../redux/reducers/bookmarks';
 
 function RecipesItem(props) {
   const dispatch = useDispatch();
@@ -23,11 +23,13 @@ function RecipesItem(props) {
   const [likeClick, setLikeClick] = useState(props.item.like);
   const [likeStatus, setLikeStatus] = useState(false);
   const likeActive = () => {
+    setLikeStatus(!likeStatus);
     if (likeStatus === false) {
-      setLikeStatus(!likeStatus);
       setLikeClick(likeClick + 1);
-    }
+    } else setLikeClick(likeClick - 1);
   };
+
+  const token = useSelector((state) => state.token);
 
   return (
     <div className="recipes-item m-auto d-block">
@@ -40,9 +42,14 @@ function RecipesItem(props) {
             alt="img"
           />
           <h2 className="align-self-center">{props.item.title}</h2>
-          <button className="exit" onClick={() => itemDeleting(props.item.id)}>
-            ❌
-          </button>
+          {token && (
+            <button
+              className="exit"
+              onClick={() => itemDeleting(props.item.id)}
+            >
+              ❌
+            </button>
+          )}
         </div>
         <div className="d-block align-self-center pb-4">
           <span className="mr-5">Каллорийность: {props.item.calories}</span>
@@ -56,8 +63,9 @@ function RecipesItem(props) {
         <div>{props.item.cooking}</div>
       </div>
       <div className="d-inline d-flex w-auto p-4">
-        <div className="like-one">
+        <div>
           <FiThumbsUp
+            className="like-one"
             size={25}
             fill={likeStatus ? 'black' : 'none'}
             onClick={() => likeActive()}

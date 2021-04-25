@@ -1,28 +1,36 @@
 import React from 'react';
-import { FiBookmark, FaUserCircle } from 'react-icons/all';
+import { FiBookmark, FaUserCircle, FiArrowRightCircle } from 'react-icons/all';
 import { Link, useHistory } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutStart } from '../redux/reducers/auth';
 
 function Header() {
+  const dispatch = useDispatch();
   const history = useHistory();
+  const token = useSelector((state) => state.auth.token);
   const handleClick = () => {
-    history.push('/all-recipes');
+    history.push('/categories/all-recipes');
   };
 
   const handleClick2 = () => {
-    history.push('/meat');
+    history.push('/categories/meat');
   };
 
   const handleClick3 = () => {
-    history.push('/desserts');
+    history.push('/categories/desserts');
   };
 
   const handleClick4 = () => {
-    history.push('/beverages');
+    history.push('/categories/beverages');
   };
 
   const handleClick5 = () => {
-    history.push('/salads');
+    history.push('/categories/salads');
+  };
+
+  const logout = () => {
+    dispatch(logoutStart());
   };
 
   return (
@@ -40,7 +48,7 @@ function Header() {
               </Link>
             </div>
           </div>
-          <div className="col-8">
+          <div className="col-9">
             <ul className="nav d-flex justify-content-between">
               <li className="nav-item dropdown-button">
                 <div>
@@ -78,12 +86,24 @@ function Header() {
                 <div className="about-us">Контакты</div>
               </li>
               <li className="nav-item">
-                <FiBookmark size={25} style={{ marginTop: 22 }} />
-                <div className="counter">1</div>
+                <Link to="/Bookmark">
+                  <FiBookmark size={25} style={{ marginTop: 22 }} />
+                </Link>
               </li>
               <li className="nav-item">
-                <FaUserCircle size={25} style={{ marginTop: 22 }} />
+                <Link to="/SignIn">
+                  <FaUserCircle size={25} style={{ marginTop: 22 }} />
+                </Link>
               </li>
+              {token && (
+                <li className="nav-item">
+                  <FiArrowRightCircle
+                    size={25}
+                    style={{ marginTop: 22 }}
+                    onClick={logout}
+                  />
+                </li>
+              )}
             </ul>
           </div>
         </div>

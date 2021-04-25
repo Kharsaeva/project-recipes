@@ -8,15 +8,31 @@ function MainRecipes(props) {
   const filteredRecipes = recipes.filter(
     (item) => item.title.toLowerCase().indexOf(filter) > -1,
   );
-
+  const frontSideRecipes = recipes.filter((recipe) => {
+    return recipe.id === 5 || recipe.id === 20 || recipe.id === 11;
+  });
   return (
     <div
-      style={{ width: '58%' }}
+      style={{ width: '65%' }}
       className="recipes justify-content-center m-auto"
     >
-      {filteredRecipes.map((item) => {
-        return <MainRecipesItem item={item} key={item.id} />;
-      })}
+      {filter ? (
+        <div>
+          {filteredRecipes.map((item) => {
+            return <MainRecipesItem item={item} key={item.id} />;
+          })}
+        </div>
+      ) : (
+        false
+      )}
+      <div className="blockMain">
+        Рецепты на каждый день: вкусно, быстро и легко
+      </div>
+      <div>
+        {frontSideRecipes.map((item) => {
+          return <MainRecipesItem item={item} key={item.id} />;
+        })}
+      </div>
     </div>
   );
 }

@@ -8,23 +8,25 @@ import Salads from './Salads';
 
 function Categories(props) {
   return (
-    <Switch>
-      <Route path="/all-recipes/:id?">
-        <AllRecipes />
-      </Route>
-      <Route path="/meat/:id?">
-        <Meat />
-      </Route>
-      <Route path="/desserts/:id?">
-        <Desserts />
-      </Route>
-      <Route path="/beverages/:id?">
-        <Beverages />
-      </Route>
-      <Route path="/salads/:id?">
-        <Salads />
-      </Route>
-    </Switch>
+    <div className="categories">
+      <Switch>
+        <Route path="/categories/all-recipes/:id?">
+          <AllRecipes />
+        </Route>
+        <Route path="/categories/meat/:id?">
+          <Meat />
+        </Route>
+        <Route path="/categories/desserts/:id?">
+          <Desserts />
+        </Route>
+        <Route path="/categories/beverages/:id?">
+          <Beverages />
+        </Route>
+        <Route path="/categories/salads/:id?">
+          <Salads />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 

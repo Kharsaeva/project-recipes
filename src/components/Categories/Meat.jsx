@@ -5,12 +5,12 @@ import Recipes from '../Recipes/Recipes';
 
 function Meat(props) {
   const recipes = useSelector((state) => state.recipes.items);
-  const newRecipes = recipes.filter((item) => item.category === 'мясные');
+  const newRecipes = recipes.filter((item) => item.categoryId === 2);
 
   return (
     <div>
       <div>
-        <Route path="/meat/:id?/:title?">
+        <Route path="/categories/meat/:id?/:title?">
           <Recipes />
         </Route>
       </div>
@@ -21,8 +21,8 @@ function Meat(props) {
             className="recipes justify-content-center m-auto"
           >
             <div className="recipes-block">
-              <Route exact path="/meat/:id?">
-                <Link to={`/meat/${item.id}/${item.title}`}>
+              <Route exact path="/categories/meat/:id?">
+                <Link to={`/categories/meat/${item.id}/${item.title}`}>
                   <div className="d-inline-flex">
                     <div className="img mb-3">
                       <img width={286} height={180} src={item.url} alt="img" />

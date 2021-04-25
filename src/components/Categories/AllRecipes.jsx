@@ -9,7 +9,7 @@ function AllRecipes(recipe) {
   return (
     <div>
       <div>
-        <Route path="/all-recipes/:id?/:title?">
+        <Route path="/categories/all-recipes/:id?/:title?">
           <Recipes />
         </Route>
       </div>
@@ -20,8 +20,8 @@ function AllRecipes(recipe) {
             className="recipes justify-content-center m-auto"
           >
             <div className="recipes-block">
-              <Route exact path="/all-recipes/:id?">
-                <Link to={`/all-recipes/${item.id}/${item.title}`}>
+              <Route exact path="/categories/all-recipes/:id?">
+                <Link to={`/categories/all-recipes/${item.id}/${item.title}`}>
                   <div className="d-inline-flex">
                     <div className="img mb-3">
                       <img width={286} height={180} src={item.url} alt="img" />
