@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loginStart } from '../redux/recipes';
+import { Redirect } from 'react-router';
 
 function SignIn(props) {
   const dispatch = useDispatch();
@@ -15,7 +16,6 @@ function SignIn(props) {
 
   const error = useSelector((state) => state.error);
   const authorizing = useSelector((state) => state.authorizing);
-
   return (
     <div>
       <div className="container h-100">
