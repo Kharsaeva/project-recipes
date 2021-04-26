@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import Recipes from './Recipes/Recipes';
+import React from 'react';
 
 function Bookmark() {
-  const recipes = useSelector((state) => state.items);
+  const recipes = useSelector((state) => state.recipes.items);
   const newRecipes = recipes.filter((item) => item.favorite === true);
+
   return (
     <div className="mb-5">
       <div>

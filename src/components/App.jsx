@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import SignIn from './SignIn';
 import { Redirect } from 'react-router';
-import { loadRecipes } from '../redux/recipes';
+import { loadRecipes } from '../redux/reducers/recipes';
 import Categories from './Categories';
 import Bookmark from './Bookmark';
 
@@ -17,7 +17,7 @@ function App() {
     dispatch(loadRecipes());
   }, [dispatch]);
 
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state) => state.auth.token);
   let routes;
 
   if (token) {

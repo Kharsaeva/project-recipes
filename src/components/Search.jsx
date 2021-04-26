@@ -1,11 +1,11 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilterText } from '../redux/recipes';
+import { setFilterText } from '../redux/reducers/recipes';
 
 function Search(props) {
   const dispatch = useDispatch();
-  const filter = useSelector((state) => state.filter);
+  const filter = useSelector((state) => state.recipes.filter);
   const handleChangeFilter = (event) => {
     dispatch(setFilterText(event.target.value));
   };

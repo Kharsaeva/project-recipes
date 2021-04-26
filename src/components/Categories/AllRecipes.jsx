@@ -4,7 +4,7 @@ import { Link, Route } from 'react-router-dom';
 import Recipes from '../Recipes/Recipes';
 
 function AllRecipes(recipe) {
-  const recipes = useSelector((state) => state.items);
+  const recipes = useSelector((state) => state.recipes.items);
 
   return (
     <div>

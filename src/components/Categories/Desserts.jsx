@@ -4,8 +4,8 @@ import { Link, Route } from 'react-router-dom';
 import Recipes from '../Recipes/Recipes';
 
 function Desserts(props) {
-  const recipes = useSelector((state) => state.items);
-  const newRecipes = recipes.filter((item) => item.category === 'десерты');
+  const recipes = useSelector((state) => state.recipes.items);
+  const newRecipes = recipes.filter((item) => item.categoryId === 1);
 
   return (
     <div>

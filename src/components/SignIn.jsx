@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loginStart } from '../redux/recipes';
+import { loginStart } from '../redux/reducers/auth';
 
 function SignIn(props) {
   const dispatch = useDispatch();
@@ -13,8 +13,8 @@ function SignIn(props) {
     dispatch(loginStart());
   };
 
-  const error = useSelector((state) => state.error);
-  const authorizing = useSelector((state) => state.authorizing);
+  const error = useSelector((state) => state.auth.error);
+  const authorizing = useSelector((state) => state.auth.authorizing);
 
   return (
     <div>
