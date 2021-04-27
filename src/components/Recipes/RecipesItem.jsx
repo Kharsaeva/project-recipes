@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { itemDelete } from '../../redux/recipes';
+import { itemDelete } from '../../redux/reducers/recipes';
 import React, { useState } from 'react';
 import { FiThumbsUp, FiBookmark, FiMessageCircle } from 'react-icons/fi';
-import { favoritePatch } from '../../redux/recipes';
 import ModalW from '../Modal';
+import { favoritePatch } from '../../redux/reducers/bookmarks';
 
 function RecipesItem(props) {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function RecipesItem(props) {
   };
 
   const [modalActive, setModalActive] = useState(false);
-  const commOpen = (i) => {
+  const commOpen = () => {
     setModalActive(true);
   };
 
@@ -63,8 +63,9 @@ function RecipesItem(props) {
         <div>{props.item.cooking}</div>
       </div>
       <div className="d-inline d-flex w-auto p-4">
-        <div className="like-one">
+        <div>
           <FiThumbsUp
+            className="like-one"
             size={25}
             fill={likeStatus ? 'black' : 'none'}
             onClick={() => likeActive()}

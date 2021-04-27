@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import Recipes from '../Recipes/Recipes';
 
-function Salads(props) {
-  const recipes = useSelector((state) => state.items);
-  const newRecipes = recipes.filter((item) => item.category === 'салаты');
+function Salads() {
+  const recipes = useSelector((state) => state.recipes.items);
+  const newRecipes = recipes.filter((item) => item.categoryId === 4);
 
   return (
     <div>

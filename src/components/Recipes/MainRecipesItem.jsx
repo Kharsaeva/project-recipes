@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { favoritePatch } from '../../redux/recipes';
 import { FiBookmark, FiMessageCircle, FiThumbsUp } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal';
 import { Link } from 'react-router-dom';
+import { favoritePatch } from '../../redux/reducers/bookmarks';
 
 function MainRecipesItem(props) {
   const [modalActive, setModalActive] = useState(false);

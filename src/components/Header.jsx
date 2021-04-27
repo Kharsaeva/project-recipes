@@ -3,12 +3,12 @@ import { FiBookmark, FaUserCircle, FiArrowRightCircle } from 'react-icons/all';
 import { Link, useHistory } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutStart } from '../redux/recipes';
+import { logoutStart } from '../redux/reducers/auth';
 
 function Header() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state) => state.auth.token);
   const handleClick = () => {
     history.push('/categories/all-recipes');
   };

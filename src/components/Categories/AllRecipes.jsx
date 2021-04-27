@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import Recipes from '../Recipes/Recipes';
 
-function AllRecipes(recipe) {
-  const recipes = useSelector((state) => state.items);
+function AllRecipes() {
+  const recipes = useSelector((state) => state.recipes.items);
 
   return (
     <div>
