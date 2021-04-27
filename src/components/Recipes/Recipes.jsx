@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import RecipesItem from './RecipesItem';
 import { useParams } from 'react-router-dom';
 
-function Recipes(props) {
+function Recipes() {
   const loading = useSelector((state) => state.recipes.loading);
   const recipes = useSelector((state) => state.recipes.items);
   const id = parseInt(useParams().id);

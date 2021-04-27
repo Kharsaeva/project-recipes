@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import Recipes from '../Recipes/Recipes';
 
-function Salads(props) {
+function Salads() {
   const recipes = useSelector((state) => state.recipes.items);
   const newRecipes = recipes.filter((item) => item.categoryId === 4);
 

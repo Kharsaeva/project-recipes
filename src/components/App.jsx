@@ -19,46 +19,50 @@ function App() {
 
   const token = useSelector((state) => state.auth.token);
   let routes;
-
   if (token) {
     routes = (
-      <Switch>
-        <Redirect exact to="/categories/all-recipes/:id?" />
-      </Switch>
+      <div>
+        <Header />
+        <Switch>
+          <Route path="/categories">
+            <Categories />
+          </Route>
+          <Route exact path="/admin">
+            <Main />
+          </Route>
+          <Route path="/bookmark">
+            <Bookmark />
+          </Route>
+          <Redirect to="/admin" />
+        </Switch>
+        <Footer />
+      </div>
     );
   } else {
     routes = (
       <Switch>
-        <Redirect to="/SignIn" />
+        <Route path="/signIn">
+          <SignIn />
+        </Route>
+        <div>
+          <Header />
+          <Route path="/categories">
+            <Categories />
+          </Route>
+          <Route exact path="/">
+            <Main />
+          </Route>
+          <Route path="/bookmark">
+            <Bookmark />
+          </Route>
+          <Footer />
+        </div>
+        <Redirect to="/signIn" />
       </Switch>
     );
   }
 
-  return (
-    <div className="container-lg mb-5">
-      <Switch>
-        <Route path="/SignIn">
-          <SignIn />
-          {routes}
-        </Route>
-        <Route path="/categories">
-          <Header routes={routes} />
-          <Categories />
-          <Footer />
-        </Route>
-        <Route exact path="/">
-          <Header routes={routes} />
-          <Main />
-          <Footer />
-        </Route>
-        <Route path="/bookmark">
-          <Header />
-          <Bookmark />
-          <Footer />
-        </Route>
-      </Switch>
-    </div>
-  );
+  return <div className="container-lg mb-5">{routes}</div>;
 }
 
 export default App;

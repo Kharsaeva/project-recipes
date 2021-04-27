@@ -12,7 +12,7 @@ function RecipesItem(props) {
   };
 
   const [modalActive, setModalActive] = useState(false);
-  const commOpen = (i) => {
+  const commOpen = () => {
     setModalActive(true);
   };
 

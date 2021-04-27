@@ -3,7 +3,6 @@ const FAVORITE_SET_SUCCESS = 'favorite/set/success';
 
 const initialState = {
   items: [],
-  filter: '',
   loading: false,
 };
 

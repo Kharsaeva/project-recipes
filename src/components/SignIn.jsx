@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loginStart } from '../redux/reducers/auth';
 
-function SignIn(props) {
+function SignIn() {
   const dispatch = useDispatch();
 
   const [login, setLogin] = useState('');

@@ -91,17 +91,23 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/SignIn">
-                  <FaUserCircle size={25} style={{ marginTop: 22 }} />
-                </Link>
+                {token ? (
+                  false
+                ) : (
+                  <Link to="/signIn">
+                    <FaUserCircle size={25} style={{ marginTop: 22 }} />
+                  </Link>
+                )}
               </li>
               {token && (
                 <li className="nav-item">
-                  <FiArrowRightCircle
-                    size={25}
-                    style={{ marginTop: 22 }}
-                    onClick={logout}
-                  />
+                  <Link to="/">
+                    <FiArrowRightCircle
+                      size={25}
+                      style={{ marginTop: 22, position: 'absolute', right: 40 }}
+                      onClick={logout}
+                    />
+                  </Link>
                 </li>
               )}
             </ul>

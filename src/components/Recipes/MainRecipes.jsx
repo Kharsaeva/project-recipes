@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import MainRecipesItem from './MainRecipesItem';
 
-function MainRecipes(props) {
+function MainRecipes() {
   const recipes = useSelector((state) => state.recipes.items);
   const filter = useSelector((state) => state.recipes.filter);
   const filteredRecipes = recipes.filter(

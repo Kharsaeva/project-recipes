@@ -8,7 +8,6 @@ const initialState = {
   items: [],
   filter: '',
   loading: false,
-  likeState: false,
 };
 
 export default function reducer(state = initialState, action) {
