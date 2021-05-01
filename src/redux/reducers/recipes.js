@@ -65,11 +65,17 @@ export const setFilterText = (text) => {
   };
 };
 
-export const loadRecipes = () => {
+export const loadRecipes = (id) => {
   return (dispatch) => {
     dispatch({ type: RECIPES_LOAD_START });
 
-    fetch('http://localhost:3010/recipes')
+    let url = 'http://localhost:3010/recipes';
+
+    if (id) {
+      url += `/?categoryId=${id}`;
+    }
+
+    fetch(url)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
