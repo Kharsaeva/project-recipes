@@ -2,13 +2,14 @@ import React from 'react';
 import { FiBookmark, FaUserCircle, FiArrowRightCircle } from 'react-icons/all';
 import { Link, useHistory } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logoutStart } from '../redux/reducers/auth';
+import { useAuth } from '../hooks/useAuth';
 
 function Header() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const token = useSelector((state) => state.auth.token);
+  const isAuth = useAuth();
   const handleClick = () => {
     history.push('/categories/all-recipes');
   };
@@ -91,7 +92,7 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                {token ? (
+                {isAuth ? (
                   false
                 ) : (
                   <Link to="/signIn">
@@ -99,7 +100,7 @@ function Header() {
                   </Link>
                 )}
               </li>
-              {token && (
+              {isAuth && (
                 <li className="nav-item">
                   <Link to="/">
                     <FiArrowRightCircle

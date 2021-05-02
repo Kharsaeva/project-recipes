@@ -43,24 +43,21 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-export const loginStart = () => (dispatch) => {
+export const loginStart = (login, password) => (dispatch) => {
   dispatch({ type: AUTH_STARTED });
 
-  fetch('http://localhost:3010/admin')
+  fetch(`http://localhost:3010/admin/?login=${login}&password=${password}`)
     .then((response) => response.json())
     .then((json) => {
-      const random = Math.random();
-
-      if (random < 0.4) {
+      if (json.login === login && json.password === password) {
+        localStorage.setItem('auth-token', json.token);
         dispatch({
-          type: AUTH_FAILED,
+          type: AUTH_SUCCEED,
           payload: json,
         });
       } else {
-        localStorage.setItem('auth-token', json.token);
-
         dispatch({
-          type: AUTH_SUCCEED,
+          type: AUTH_FAILED,
           payload: json,
         });
       }
