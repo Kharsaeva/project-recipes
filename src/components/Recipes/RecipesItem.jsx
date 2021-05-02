@@ -29,7 +29,7 @@ function RecipesItem(props) {
     } else setLikeClick(likeClick - 1);
   };
 
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state) => state.auth.token);
 
   return (
     <div className="recipes-item m-auto d-block">
@@ -42,9 +42,14 @@ function RecipesItem(props) {
             alt="img"
           />
           <h2 className="align-self-center">{props.item.title}</h2>
-          <button className="exit" onClick={() => itemDeleting(props.item.id)}>
-            ❌
-          </button>
+          {token && (
+            <button
+              className="exit"
+              onClick={() => itemDeleting(props.item.id)}
+            >
+              ❌
+            </button>
+          )}
         </div>
         <div className="d-block align-self-center pb-4">
           <span className="mr-5">Каллорийность: {props.item.calories}</span>
