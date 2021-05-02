@@ -18,10 +18,10 @@ function SignIn() {
 
   return (
     <div>
-      <div className="container h-100">
+      <div className="container">
         <div
           className="row justify-content-center align-items-center"
-          style={{ height: '100vh' }}
+          style={{ height: '80vh' }}
         >
           <div className="col-5 shadow px-5 py-3 rounded">
             <Link exact to="/">

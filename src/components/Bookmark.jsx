@@ -1,16 +1,22 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import Recipes from './Recipes/Recipes';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { loadRecipes } from '../redux/reducers/recipes';
 
 function Bookmark() {
   const recipes = useSelector((state) => state.recipes.items);
   const newRecipes = recipes.filter((item) => item.favorite === true);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadRecipes());
+  }, [dispatch]);
 
   return (
     <div className="mb-5">
       <div>
-        <Route path="/categories/:category?/:id?/:title?">
+        <Route path="/categories/:category?/:id?/">
           <Recipes />
         </Route>
       </div>
@@ -22,7 +28,7 @@ function Bookmark() {
           >
             <div className="recipes-block">
               <Route exact path="/:category?/:id?">
-                <Link to={`/categories/all-recipes/${item.id}/${item.title}`}>
+                <Link to={`/recipes/${item.id}`}>
                   <div className="d-inline-flex">
                     <div className="img mb-3">
                       <img width={286} height={180} src={item.url} alt="img" />

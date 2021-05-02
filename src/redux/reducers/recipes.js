@@ -3,6 +3,7 @@ const RECIPES_LOAD_SUCCESS = 'recipes/load/success';
 const FILTER_SET = 'filter/set';
 const DELETE_LOAD_START = 'delete/load/start';
 const DELETE_LOAD_SUCCESS = 'delete/load/success';
+const FAVORITE_SET_SUCCESS = 'favorite/set/success';
 
 const initialState = {
   items: [],
@@ -50,6 +51,20 @@ export default function reducer(state = initialState, action) {
         ...state,
         items: state.items.filter((item) => {
           return item.id !== action.payload;
+        }),
+      };
+
+    case FAVORITE_SET_SUCCESS:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.id === action.payload) {
+            return {
+              ...item,
+              favorite: !item.favorite,
+            };
+          }
+          return item;
         }),
       };
 

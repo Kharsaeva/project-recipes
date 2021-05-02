@@ -27,7 +27,7 @@ function Categories() {
             className="recipes justify-content-center m-auto"
           >
             <div className="recipes-block">
-              <Link to={`/categories/recipes/${item.id}/${item.title}`}>
+              <Link to={`/recipes/${item.id}`}>
                 <div className="d-inline-flex">
                   <div className="img mb-3">
                     <img width={286} height={180} src={item.url} alt="img" />

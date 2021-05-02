@@ -1,13 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import RecipesItem from './RecipesItem';
 import { useParams } from 'react-router-dom';
+import { loadRecipes } from '../../redux/reducers/recipes';
 
 function Recipes() {
   const loading = useSelector((state) => state.recipes.loading);
   const recipes = useSelector((state) => state.recipes.items);
   const id = parseInt(useParams().id);
   const newRecipes = recipes.filter((recipe) => id === recipe.id);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadRecipes());
+  }, [dispatch]);
 
   if (loading) {
     return <p className="load-text">loading recipes...</p>;

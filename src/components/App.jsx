@@ -14,7 +14,7 @@ function App() {
       <div>
         <Header />
         <Switch>
-          <Route path="/categories/recipes/:id?/:title?">
+          <Route path="/recipes/:id?">
             <Recipes />
           </Route>
           <Route path="/categories/:id?">

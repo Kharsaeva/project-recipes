@@ -28,7 +28,7 @@ function MainRecipesItem(props) {
   return (
     <div className="recipes-item m-auto d-block ">
       <div className="pb-4 mt-5">
-        <Link to={`/categories/recipes/${props.item.id}/${props.item.title}`}>
+        <Link to={`/recipes/${props.item.id}`}>
           <div className="d-inline d-flex pb-4 justify-content-between">
             <img
               className="mr-4"

@@ -80,6 +80,7 @@ function RecipesItem(props) {
         </div>
         <div>
           <FiBookmark
+            className="bookmark"
             size={25}
             fill={props.item.favorite ? 'black' : 'none'}
             onClick={() => setFavorite(props.item.id, props.item.favorite)}
