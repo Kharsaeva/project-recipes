@@ -1,52 +1,23 @@
 import Header from './Header';
 import Main from './Main';
-import React, { useEffect } from 'react';
 import Footer from './Footer';
-import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import SignIn from './SignIn';
-import { Redirect } from 'react-router';
-import { loadRecipes } from '../redux/reducers/recipes';
-import Categories from './Categories';
 import Bookmark from './Bookmark';
+import Categories from './Categories/Index';
+import Recipes from './Recipes/Recipes';
+import React from 'react';
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadRecipes());
-  }, [dispatch]);
-
-  const token = useSelector((state) => state.auth.token);
-  let routes;
-  if (token) {
-    routes = (
+  return (
+    <div className="container-lg mb-5">
       <div>
         <Header />
         <Switch>
-          <Route path="/categories">
-            <Categories />
+          <Route path="/recipes/:id?">
+            <Recipes />
           </Route>
-          <Route exact path="/admin">
-            <Main />
-          </Route>
-          <Route path="/bookmark">
-            <Bookmark />
-          </Route>
-          <Redirect to="/admin" />
-        </Switch>
-        <Footer />
-      </div>
-    );
-  } else {
-    routes = (
-      <Switch>
-        <Route path="/signIn">
-          <SignIn />
-        </Route>
-        <div>
-          <Header />
-          <Route path="/categories">
+          <Route path="/categories/:id?">
             <Categories />
           </Route>
           <Route exact path="/">
@@ -55,14 +26,14 @@ function App() {
           <Route path="/bookmark">
             <Bookmark />
           </Route>
-          <Footer />
-        </div>
-        <Redirect to="/signIn" />
-      </Switch>
-    );
-  }
-
-  return <div className="container-lg mb-5">{routes}</div>;
+          <Route path="/signIn">
+            <SignIn />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
+    </div>
+  );
 }
 
 export default App;

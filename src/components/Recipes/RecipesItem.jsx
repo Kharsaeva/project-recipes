@@ -29,7 +29,7 @@ function RecipesItem(props) {
     } else setLikeClick(likeClick - 1);
   };
 
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state) => state.auth.token);
 
   return (
     <div className="recipes-item m-auto d-block">
@@ -80,6 +80,7 @@ function RecipesItem(props) {
         </div>
         <div>
           <FiBookmark
+            className="bookmark"
             size={25}
             fill={props.item.favorite ? 'black' : 'none'}
             onClick={() => setFavorite(props.item.id, props.item.favorite)}

@@ -3,6 +3,7 @@ const RECIPES_LOAD_SUCCESS = 'recipes/load/success';
 const FILTER_SET = 'filter/set';
 const DELETE_LOAD_START = 'delete/load/start';
 const DELETE_LOAD_SUCCESS = 'delete/load/success';
+const FAVORITE_SET_SUCCESS = 'favorite/set/success';
 
 const initialState = {
   items: [],
@@ -53,6 +54,20 @@ export default function reducer(state = initialState, action) {
         }),
       };
 
+    case FAVORITE_SET_SUCCESS:
+      return {
+        ...state,
+        items: state.items.map((item) => {
+          if (item.id === action.payload) {
+            return {
+              ...item,
+              favorite: !item.favorite,
+            };
+          }
+          return item;
+        }),
+      };
+
     default:
       return state;
   }
@@ -65,11 +80,17 @@ export const setFilterText = (text) => {
   };
 };
 
-export const loadRecipes = () => {
+export const loadRecipes = (id) => {
   return (dispatch) => {
     dispatch({ type: RECIPES_LOAD_START });
 
-    fetch('http://localhost:3010/recipes')
+    let url = 'http://localhost:3010/recipes';
+
+    if (id) {
+      url += `/?categoryId=${id}`;
+    }
+
+    fetch(url)
       .then((response) => response.json())
       .then((json) => {
         dispatch({

@@ -1,27 +1,28 @@
-const CATEGORIES_SUCCESS = 'categories/success';
+const RECIPESITEM_SUCCESS = 'recipesITEM/success';
 const initialState = {
   items: [],
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case CATEGORIES_SUCCESS:
+    case RECIPESITEM_SUCCESS:
       return {
         ...state,
         items: action.payload,
       };
+
     default:
       return state;
   }
 }
 
-export const loadCategories = () => {
+export const loadRecipesItem = (id) => {
   return (dispatch) => {
-    fetch('http://localhost:3010/categories')
+    fetch(`http://localhost:3010/recipes/${id}`)
       .then((response) => response.json())
       .then((json) => {
         dispatch({
-          type: CATEGORIES_SUCCESS,
+          type: RECIPESITEM_SUCCESS,
           payload: json,
         });
       });

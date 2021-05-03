@@ -1,33 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FiBookmark, FaUserCircle, FiArrowRightCircle } from 'react-icons/all';
 import { Link, useHistory } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutStart } from '../redux/reducers/auth';
+import { loadCategories } from '../redux/reducers/categories';
 
 function Header() {
   const dispatch = useDispatch();
   const history = useHistory();
   const token = useSelector((state) => state.auth.token);
-  const handleClick = () => {
-    history.push('/categories/all-recipes');
+  const categories = useSelector((state) => state.categories.items);
+  const handleClick = (id) => {
+    if (!id) {
+      history.push('/categories');
+    } else {
+      history.push(`/categories/${id}`);
+    }
   };
-
-  const handleClick2 = () => {
-    history.push('/categories/meat');
-  };
-
-  const handleClick3 = () => {
-    history.push('/categories/desserts');
-  };
-
-  const handleClick4 = () => {
-    history.push('/categories/beverages');
-  };
-
-  const handleClick5 = () => {
-    history.push('/categories/salads');
-  };
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, [dispatch]);
 
   const logout = () => {
     dispatch(logoutStart());
@@ -60,21 +53,17 @@ function Header() {
                       Категории рецептов
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      <Dropdown.Item onClick={handleClick}>
-                        Все рецепты
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={handleClick2}>
-                        Мясные
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={handleClick3}>
-                        Десерты
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={handleClick4}>
-                        Напитки
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={handleClick5}>
-                        Салаты
-                      </Dropdown.Item>
+                      {categories.map((categorie) => {
+                        return (
+                          <div key={categorie.id}>
+                            <Dropdown.Item
+                              onClick={() => handleClick(categorie.id)}
+                            >
+                              {categorie.name}
+                            </Dropdown.Item>
+                          </div>
+                        );
+                      })}
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
@@ -119,3 +108,19 @@ function Header() {
 }
 
 export default Header;
+
+// <Dropdown.Item onClick={() => handleClick(null)}>
+//   Все рецепты
+// </Dropdown.Item>
+// <Dropdown.Item onClick={() => handleClick(2)}>
+//   Мясные
+// </Dropdown.Item>
+// <Dropdown.Item onClick={() => handleClick(1)}>
+//   Десерты
+// </Dropdown.Item>
+// <Dropdown.Item onClick={() => handleClick(3)}>
+//   Напитки
+// </Dropdown.Item>
+// <Dropdown.Item onClick={() => handleClick(4)}>
+//   Салаты
+// </Dropdown.Item>
