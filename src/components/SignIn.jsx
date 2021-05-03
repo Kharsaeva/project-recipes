@@ -17,7 +17,7 @@ function SignIn() {
   const authorizing = useSelector((state) => state.auth.authorizing);
 
   if (isAuth) {
-    return <Redirect to="/admin" />;
+    return <Redirect to="/recipes/:id?" />;
   }
   return (
     <div>

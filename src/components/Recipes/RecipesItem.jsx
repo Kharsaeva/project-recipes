@@ -1,9 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { itemDelete } from '../../redux/reducers/recipes';
 import React, { useState } from 'react';
 import { FiThumbsUp, FiBookmark, FiMessageCircle } from 'react-icons/fi';
 import ModalW from '../Modal';
 import { favoritePatch } from '../../redux/reducers/bookmarks';
+import { useAuth } from '../../hooks/useAuth';
 
 function RecipesItem(props) {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function RecipesItem(props) {
     } else setLikeClick(likeClick - 1);
   };
 
-  const token = useSelector((state) => state.token);
+  const isAuth = useAuth();
 
   return (
     <div className="recipes-item m-auto d-block">
@@ -42,7 +43,7 @@ function RecipesItem(props) {
             alt="img"
           />
           <h2 className="align-self-center">{props.item.title}</h2>
-          {token && (
+          {isAuth && (
             <button
               className="exit"
               onClick={() => itemDeleting(props.item.id)}
