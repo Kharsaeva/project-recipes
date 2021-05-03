@@ -4,8 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 import { loadRecipes } from '../../redux/reducers/recipes';
 
 function Categories() {
-  const recipes = useSelector((state) => state.recipes.items);
-
   const id = parseInt(useParams().id);
 
   const dispatch = useDispatch();
@@ -17,12 +15,13 @@ function Categories() {
       dispatch(loadRecipes());
     }
   }, [dispatch, id]);
-
+  const recipes = useSelector((state) => state.recipes.items);
   return (
     <div>
       {recipes.map((item) => {
         return (
           <div
+            key={item.id}
             style={{ width: '58%' }}
             className="recipes justify-content-center m-auto"
           >
