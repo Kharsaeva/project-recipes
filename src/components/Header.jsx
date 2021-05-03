@@ -5,11 +5,13 @@ import { Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutStart } from '../redux/reducers/auth';
 import { loadCategories } from '../redux/reducers/categories';
+import { useAuth } from '../hooks/useAuth';
 
 function Header() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const token = useSelector((state) => state.auth.token);
+  const isAuth = useAuth();
+
   const categories = useSelector((state) => state.categories.items);
   const handleClick = (id) => {
     if (!id) {
@@ -80,7 +82,7 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                {token ? (
+                {isAuth ? (
                   false
                 ) : (
                   <Link to="/signIn">
@@ -88,7 +90,7 @@ function Header() {
                   </Link>
                 )}
               </li>
-              {token && (
+              {isAuth && (
                 <li className="nav-item">
                   <Link to="/">
                     <FiArrowRightCircle
@@ -108,19 +110,3 @@ function Header() {
 }
 
 export default Header;
-
-// <Dropdown.Item onClick={() => handleClick(null)}>
-//   Все рецепты
-// </Dropdown.Item>
-// <Dropdown.Item onClick={() => handleClick(2)}>
-//   Мясные
-// </Dropdown.Item>
-// <Dropdown.Item onClick={() => handleClick(1)}>
-//   Десерты
-// </Dropdown.Item>
-// <Dropdown.Item onClick={() => handleClick(3)}>
-//   Напитки
-// </Dropdown.Item>
-// <Dropdown.Item onClick={() => handleClick(4)}>
-//   Салаты
-// </Dropdown.Item>

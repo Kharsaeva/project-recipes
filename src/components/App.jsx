@@ -1,37 +1,25 @@
 import Header from './Header';
-import Main from './Main';
 import Footer from './Footer';
-import { Switch, Route } from 'react-router-dom';
+import useRoute from '../hooks/useRoutes';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SignIn from './SignIn';
-import Bookmark from './Bookmark';
-import Categories from './Categories/Index';
-import Recipes from './Recipes/Recipes';
-import React from 'react';
-
 function App() {
+  const routes = useRoute();
+
   return (
     <div className="container-lg mb-5">
-      <div>
-        <Header />
+      <Router>
         <Switch>
-          <Route path="/recipes/:id?">
-            <Recipes />
-          </Route>
-          <Route path="/categories/:id?">
-            <Categories />
-          </Route>
-          <Route exact path="/">
-            <Main />
-          </Route>
-          <Route path="/bookmark">
-            <Bookmark />
-          </Route>
           <Route path="/signIn">
             <SignIn />
           </Route>
+          <div>
+            <Header />
+            {routes}
+            <Footer />
+          </div>
         </Switch>
-        <Footer />
-      </div>
+      </Router>
     </div>
   );
 }

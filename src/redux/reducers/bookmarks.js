@@ -1,6 +1,4 @@
-const FAVORITE_SET_START = 'favorite/set/start';
 const FAVORITE_SET_SUCCESS = 'favorite/set/success';
-
 const initialState = {
   items: [],
   loading: false,
@@ -29,9 +27,6 @@ export default function reducer(state = initialState, action) {
 
 export function favoritePatch(id, favorite) {
   return (dispatch) => {
-    dispatch({
-      type: FAVORITE_SET_START,
-    });
     fetch(`http://localhost:3010/recipes/${id}`, {
       method: 'PATCH',
       body: JSON.stringify({ favorite: !favorite }),

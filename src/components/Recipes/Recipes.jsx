@@ -11,7 +11,7 @@ function Recipes() {
     if (id) {
       dispatch(loadRecipesItem(id));
     } else {
-      <Redirect to="/" />;
+      <Redirect to="/recipes/:id?" />;
     }
   }, [dispatch, id]);
   const recipes = useSelector((state) => state.recipesitem.items);

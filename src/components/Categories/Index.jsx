@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { loadRecipes } from '../../redux/reducers/recipes';
+import { itemDelete, loadRecipes } from '../../redux/reducers/recipes';
+import { useAuth } from '../../hooks/useAuth';
 
 function Categories() {
   const id = parseInt(useParams().id);
-
   const dispatch = useDispatch();
-
+  const itemDeleting = (id) => {
+    dispatch(itemDelete(id));
+  };
   useEffect(() => {
     if (id) {
       dispatch(loadRecipes(id));
@@ -15,6 +17,7 @@ function Categories() {
       dispatch(loadRecipes());
     }
   }, [dispatch, id]);
+  const isAuth = useAuth();
   const recipes = useSelector((state) => state.recipes.items);
   return (
     <div>
@@ -25,6 +28,13 @@ function Categories() {
             style={{ width: '58%' }}
             className="recipes justify-content-center m-auto"
           >
+            <div className="d-inline mt-5">
+              {isAuth && (
+                <button className="exit" onClick={() => itemDeleting(item.id)}>
+                  ❌
+                </button>
+              )}
+            </div>
             <div className="recipes-block">
               <Link to={`/recipes/${item.id}`}>
                 <div className="d-inline-flex">

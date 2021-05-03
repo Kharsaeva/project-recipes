@@ -1,4 +1,5 @@
 const RECIPESITEM_SUCCESS = 'recipesITEM/success';
+const FAVORITE_SET_SUCCESS = 'favorite/set/success';
 const initialState = {
   items: [],
 };
@@ -9,6 +10,14 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         items: action.payload,
+      };
+    case FAVORITE_SET_SUCCESS:
+      return {
+        ...state,
+        items: state.items.id === action.payload && {
+          ...state.items,
+          favorite: !state.items.favorite,
+        },
       };
 
     default:

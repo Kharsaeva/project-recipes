@@ -205,6 +205,8 @@ a:hover {
   text-align: center;
   border: none;
   background-color: white;
+  position: absolute;
+  right: 350px;
 }
 
 .bookmark {
