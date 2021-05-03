@@ -1,26 +1,27 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import RecipesItem from './RecipesItem';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
+import { loadRecipesItem } from '../../redux/reducers/recipesitem';
 
 function Recipes() {
-  const loading = useSelector((state) => state.recipes.loading);
-  const recipes = useSelector((state) => state.recipes.items);
   const id = parseInt(useParams().id);
-  const newRecipes = recipes.filter((recipe) => id === recipe.id);
-
-  if (loading) {
-    return <p className="load-text">loading recipes...</p>;
-  }
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (id) {
+      dispatch(loadRecipesItem(id));
+    } else {
+      <Redirect to="/recipes/:id?" />;
+    }
+  }, [dispatch, id]);
+  const recipes = useSelector((state) => state.recipesitem.items);
 
   return (
     <div
       style={{ width: '58%' }}
       className="recipes justify-content-center m-auto"
     >
-      {newRecipes.map((item) => {
-        return <RecipesItem item={item} key={item.id} />;
-      })}
+      <RecipesItem item={recipes} key={recipes.id} />;
     </div>
   );
 }
