@@ -30,9 +30,9 @@ function Modal(props) {
           <div className="comments">
             <i>{props.item.comments}</i>
           </div>
-          {initComm.map((comm) => {
+          {initComm.map((comm, index) => {
             return (
-              <div>
+              <div key={index}>
                 <i>{comm.commentText}</i>
               </div>
             );

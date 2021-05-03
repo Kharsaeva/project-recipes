@@ -1,8 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import MainRecipesItem from './MainRecipesItem';
+import { loadRecipes } from '../../redux/reducers/recipes';
 
-function MainRecipes(props) {
+function MainRecipes() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadRecipes());
+  }, [dispatch]);
+
   const recipes = useSelector((state) => state.recipes.items);
   const filter = useSelector((state) => state.recipes.filter);
   const filteredRecipes = recipes.filter(

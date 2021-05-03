@@ -1,18 +1,40 @@
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { itemDelete, loadRecipes } from '../../redux/reducers/recipes';
+import { useAuth } from '../../hooks/useAuth';
 
-function Bookmark() {
+function Categories() {
+  const id = parseInt(useParams().id);
+  const dispatch = useDispatch();
+  const itemDeleting = (id) => {
+    dispatch(itemDelete(id));
+  };
+  useEffect(() => {
+    if (id) {
+      dispatch(loadRecipes(id));
+    } else {
+      dispatch(loadRecipes());
+    }
+  }, [dispatch, id]);
+  const isAuth = useAuth();
   const recipes = useSelector((state) => state.recipes.items);
-  const newRecipes = recipes.filter((item) => item.favorite === true);
-
   return (
-    <div className="mb-5">
-      {newRecipes.map((item) => {
+    <div>
+      {recipes.map((item) => {
         return (
           <div
+            key={item.id}
             style={{ width: '58%' }}
             className="recipes justify-content-center m-auto"
           >
+            <div className="d-inline mt-5">
+              {isAuth && (
+                <button className="exit" onClick={() => itemDeleting(item.id)}>
+                  ❌
+                </button>
+              )}
+            </div>
             <div className="recipes-block">
               <Link to={`/recipes/${item.id}`}>
                 <div className="d-inline-flex">
@@ -47,4 +69,5 @@ function Bookmark() {
     </div>
   );
 }
-export default Bookmark;
+
+export default Categories;
