@@ -26,11 +26,6 @@
   width: 100%;
 }
 
-li:hover {
-  color: rgb(244, 67, 54);
-  border-bottom: gray 1px solid;
-}
-
 .counter {
   background-color: #c4c4c4;
   width: 10px;
@@ -95,7 +90,18 @@ li:hover {
 .eat {
   width: 500px;
 }
-
+.btn-block2 {
+  margin-left: 210px;
+  width: 200px;
+}
+.error-block {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  animation: 150ms ease-in forwards;
+}
 .karta {
   display: flex;
   margin-bottom: 20px;
