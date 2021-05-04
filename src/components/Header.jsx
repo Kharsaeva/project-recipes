@@ -78,7 +78,10 @@ function Header() {
               </li>
               <li className="nav-item">
                 <Link to="/Bookmark">
-                  <FiBookmark size={25} style={{ marginTop: 22 }} />
+                  <FiBookmark
+                    size={25}
+                    style={{ marginTop: 22, marginLeft: 10 }}
+                  />
                 </Link>
               </li>
               <li className="nav-item">
@@ -90,12 +93,15 @@ function Header() {
                   </Link>
                 )}
               </li>
+              <li className="nav-item about-us" style={{ marginRight: 40 }}>
+                {isAuth && <Link to="/admin">Добавить рецепт +</Link>}
+              </li>
               {isAuth && (
                 <li className="nav-item">
                   <Link to="/">
                     <FiArrowRightCircle
                       size={25}
-                      style={{ marginTop: 22, position: 'absolute', right: 40 }}
+                      style={{ marginTop: 22, position: 'absolute', right: 30 }}
                       onClick={logout}
                     />
                   </Link>
