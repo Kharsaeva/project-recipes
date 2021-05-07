@@ -9,6 +9,7 @@
   margin-top: 10px;
   cursor: pointer;
 }
+
 .dropdown-basic {
   font-size: 20px;
   margin-top: 13px;
@@ -22,7 +23,15 @@
   color: black;
 }
 
-.bookmarkImg {
+.nav-items:hover {
+  color: rgb(244, 67, 54);
+}
+
+.fi-items {
+  padding-top: 20px;
+}
+
+.bookmark-img {
   width: 100%;
 }
 
@@ -51,18 +60,22 @@
   background-color: #c4c4c4;
 }
 
+.search {
+  width: 75%;
+}
+
 .main {
   margin-top: 10px;
   margin-bottom: 150px;
 }
-.blockMain {
+
+.block-main {
   text-align: center;
   background-color: gainsboro;
   height: 80px;
   color: black;
   font-size: 26px;
   line-height: 80px;
-  margin-top: 80px;
   border-radius: 10px;
 }
 
@@ -90,10 +103,12 @@
 .eat {
   width: 500px;
 }
+
 .btn-block2 {
   margin-left: 210px;
   width: 200px;
 }
+
 .error-block {
   color: red;
   text-align: center;
@@ -101,17 +116,6 @@
   margin-bottom: 10px;
   font-size: 20px;
   animation: 150ms ease-in forwards;
-}
-.karta {
-  display: flex;
-  margin-bottom: 20px;
-  border: double grey 6px;
-}
-
-.karta:hover {
-  box-shadow: -3px 4px 6px 1px rgba(0, 0, 0, 1);
-  cursor: pointer;
-  transition: 0.2s;
 }
 
 .name {
@@ -147,6 +151,7 @@
   right: 0;
   background-color: white;
 }
+
 .categories {
   margin-top: 50px;
 }
@@ -162,10 +167,12 @@
 
 a {
   color: black;
+  text-decoration: none;
 }
 
 a:hover {
   color: rgb(244, 67, 54);
+  text-decoration: none;
 }
 
 .like-one {
@@ -212,7 +219,7 @@ a:hover {
   border: none;
   background-color: white;
   position: absolute;
-  right: 350px;
+  right: 33%;
 }
 
 .bookmark {
@@ -221,4 +228,31 @@ a:hover {
 
 .bookmark:hover {
   color: red;
+}
+
+.line-icons {
+  border-right: 1px solid darkgrey;
+}
+
+.line {
+  border-top: 1px solid darkgrey;
+}
+
+.img {
+  width: 320px;
+  height: 215px;
+}
+
+.img-main {
+  width: 320px;
+  height: 215px;
+}
+
+.category {
+  justify-content: space-between;
+  margin: auto;
+}
+
+.recipes {
+  width: 75%;
 }

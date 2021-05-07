@@ -9,10 +9,17 @@ import { useAuth } from '../hooks/useAuth';
 
 function Header() {
   const dispatch = useDispatch();
+
   const history = useHistory();
+
   const isAuth = useAuth();
 
   const categories = useSelector((state) => state.categories.items);
+
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, [dispatch]);
+
   const handleClick = (id) => {
     if (!id) {
       history.push('/categories');
@@ -20,9 +27,6 @@ function Header() {
       history.push(`/categories/${id}`);
     }
   };
-  useEffect(() => {
-    dispatch(loadCategories());
-  }, [dispatch]);
 
   const logout = () => {
     dispatch(logoutStart());
@@ -45,23 +49,23 @@ function Header() {
           </div>
           <div className="col-9">
             <ul className="nav d-flex justify-content-between">
-              <li className="nav-item dropdown-button">
+              <li className="dropdown-button">
                 <div>
                   <Dropdown>
                     <Dropdown.Toggle
                       variant="default"
-                      className="dropdown-basic"
+                      className="dropdown-basic nav-items"
                     >
                       Категории рецептов
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                      {categories.map((categorie) => {
+                      {categories.map((category) => {
                         return (
-                          <div key={categorie.id}>
+                          <div key={category.id}>
                             <Dropdown.Item
-                              onClick={() => handleClick(categorie.id)}
+                              onClick={() => handleClick(category.id)}
                             >
-                              {categorie.name}
+                              {category.name}
                             </Dropdown.Item>
                           </div>
                         );
@@ -70,40 +74,31 @@ function Header() {
                   </Dropdown>
                 </div>
               </li>
-              <li className="nav-item">
-                <div className="about-us">О нас</div>
+              <li>
+                <div className="nav-items about-us">О нас</div>
               </li>
-              <li className="nav-item">
-                <div className="about-us">Контакты</div>
+              <li>
+                <div className="nav-items about-us">Контакты</div>
               </li>
-              <li className="nav-item">
+              <li className="fi-items">
                 <Link to="/Bookmark">
-                  <FiBookmark
-                    size={25}
-                    style={{ marginTop: 22, marginLeft: 10 }}
-                  />
+                  <FiBookmark size={25} />
                 </Link>
               </li>
-              <li className="nav-item">
-                {isAuth ? (
-                  false
-                ) : (
+              <li className="fi-items">
+                {!isAuth && (
                   <Link to="/signIn">
-                    <FaUserCircle size={25} style={{ marginTop: 22 }} />
+                    <FaUserCircle size={25} />
                   </Link>
                 )}
               </li>
-              <li className="nav-item about-us" style={{ marginRight: 40 }}>
-                {isAuth && <Link to="/admin">Добавить рецепт +</Link>}
+              <li className="nav-items about-us">
+                {isAuth && <Link to="/admin">Добавить рецепт</Link>}
               </li>
               {isAuth && (
-                <li className="nav-item">
+                <li className="fi-items">
                   <Link to="/">
-                    <FiArrowRightCircle
-                      size={25}
-                      style={{ marginTop: 22, position: 'absolute', right: 30 }}
-                      onClick={logout}
-                    />
+                    <FiArrowRightCircle size={25} onClick={logout} />
                   </Link>
                 </li>
               )}

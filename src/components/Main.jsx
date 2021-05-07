@@ -4,7 +4,7 @@ import Slider from './Slider';
 import './Modal/modal.css';
 import MainRecipes from './Recipes/MainRecipes';
 
-function Main(props) {
+function Main() {
   return (
     <div className="main">
       <Slider />

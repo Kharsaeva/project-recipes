@@ -6,19 +6,23 @@ import { useAuth } from '../hooks/useAuth';
 
 function SignIn() {
   const dispatch = useDispatch();
+
   const [login, setLogin] = useState('');
   const [pass, setPass] = useState('');
-  const isAuth = useAuth();
-  const handleClick = () => {
-    dispatch(loginStart(login, pass));
-  };
 
   const error = useSelector((state) => state.auth.error);
   const authorizing = useSelector((state) => state.auth.authorizing);
 
+  const isAuth = useAuth();
+
+  const handleClick = () => {
+    dispatch(loginStart(login, pass));
+  };
+
   if (isAuth) {
     return <Redirect to="/" />;
   }
+
   return (
     <div>
       <div className="container">

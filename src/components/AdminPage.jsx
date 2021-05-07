@@ -14,28 +14,37 @@ import { useHistory } from 'react-router-dom';
 
 function AdminPage() {
   const dispatch = useDispatch();
+
+  const history = useHistory();
+
+  const [error, setError] = useState(null);
+
   const loading = useSelector((state) => state.adminPanel.loading);
   const recipe = useSelector((state) => state.adminPanel.recipe);
-  const [error, setError] = useState(null);
+
   const handleRecipeTitle = (e) => {
     dispatch(changeRecipeTitle(e.target.value));
   };
+
   const handleRecipeTime = (e) => {
     dispatch(changeRecipeTime(e.target.value));
   };
+
   const handleRecipeIngredients = (e) => {
     dispatch(changeRecipeIngredients(e.target.value));
   };
+
   const handleRecipeCooking = (e) => {
     dispatch(changeRecipeCooking(e.target.value));
   };
+
   const handleRecipeUrl = (e) => {
     dispatch(changeRecipeUrl(e.target.value));
   };
+
   const handleRecipeCalories = (e) => {
     dispatch(changeRecipeCalories(e.target.value));
   };
-  const history = useHistory();
 
   const handleAddRecipe = () => {
     if (
@@ -54,11 +63,8 @@ function AdminPage() {
   };
 
   return (
-    <div
-      className="container-lg m-auto  list-group-item"
-      style={{ width: '60%' }}
-    >
-      <h1 className="text-sm-center mt-3 "> Добавление нового рецепта </h1>
+    <div className="container-lg m-auto list-group-item">
+      <h1 className="text-sm-center mt-3 ">Добавление нового рецепта</h1>
       <Form.Group className="mb-3">
         <Form.Control
           size="lg"

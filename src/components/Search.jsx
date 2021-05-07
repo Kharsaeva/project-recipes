@@ -5,13 +5,15 @@ import { setFilterText } from '../redux/reducers/recipes';
 
 function Search() {
   const dispatch = useDispatch();
+
   const filter = useSelector((state) => state.recipes.filter);
+
   const handleChangeFilter = (event) => {
     dispatch(setFilterText(event.target.value));
   };
 
   return (
-    <div style={{ width: '75%' }} className="search  m-auto pt-3">
+    <div className="search m-auto pt-3">
       <Form.Group className="d-flex">
         <Form.Control
           placeholder="Найти нужный рецепт..."

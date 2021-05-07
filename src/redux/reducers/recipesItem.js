@@ -1,4 +1,4 @@
-const RECIPESITEM_SUCCESS = 'recipesITEM/success';
+const RECIPES_ITEM_SUCCESS = 'recipes_item/success';
 const FAVORITE_SET_SUCCESS = 'favorite/set/success';
 const initialState = {
   items: [],
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case RECIPESITEM_SUCCESS:
+    case RECIPES_ITEM_SUCCESS:
       return {
         ...state,
         items: action.payload,
@@ -31,7 +31,7 @@ export const loadRecipesItem = (id) => {
       .then((response) => response.json())
       .then((json) => {
         dispatch({
-          type: RECIPESITEM_SUCCESS,
+          type: RECIPES_ITEM_SUCCESS,
           payload: json,
         });
       });

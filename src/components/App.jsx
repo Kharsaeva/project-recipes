@@ -3,6 +3,7 @@ import Footer from './Footer';
 import useRoute from '../hooks/useRoutes';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SignIn from './SignIn';
+import React from 'react';
 function App() {
   const routes = useRoute();
 
@@ -13,11 +14,11 @@ function App() {
           <Route path="/signIn">
             <SignIn />
           </Route>
-          <div>
+          <>
             <Header />
             {routes}
             <Footer />
-          </div>
+          </>
         </Switch>
       </Router>
     </div>
