@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { itemDelete, loadRecipes } from '../../redux/reducers/recipes';
+import { recipeDelete, loadRecipes } from '../../redux/reducers/recipes';
 import { useAuth } from '../../hooks/useAuth';
 
 function Categories() {
@@ -10,7 +10,7 @@ function Categories() {
   const dispatch = useDispatch();
 
   const itemDeleting = (id) => {
-    dispatch(itemDelete(id));
+    dispatch(recipeDelete(id));
   };
 
   useEffect(() => {
@@ -26,32 +26,32 @@ function Categories() {
   const recipes = useSelector((state) => state.recipes.items);
 
   return (
-    <div className="categories m-auto">
-      {recipes.map((recipes) => {
+    <div className="categories m-auto w-75">
+      {recipes.map((recipe) => {
         return (
-          <div className="category" key={recipes.id}>
+          <div className="category" key={recipe.id}>
             <div className="d-inline mt-3">
               {isAuth && (
                 <button
                   className="exit"
-                  onClick={() => itemDeleting(recipes.id)}
+                  onClick={() => itemDeleting(recipe.id)}
                 >
                   ❌
                 </button>
               )}
             </div>
             <div className="recipes-block">
-              <Link to={`/recipes/${recipes.id}`}>
+              <Link to={`/recipes/${recipe.id}`}>
                 <div className="d-inline-flex justify-content-between">
                   <div className="img">
-                    <img width={286} height={180} src={recipes.url} alt="img" />
+                    <img width={286} height={180} src={recipe.url} alt="img" />
                   </div>
                   <div className="d-block p-3 align-self-center">
-                    <h4>{recipes.title}</h4>
+                    <h4>{recipe.title}</h4>
                     <div className="d-inline d-flex">
-                      <div>{recipes.calories}</div>
+                      <div>{recipe.calories}</div>
                       <div className="line-icons ml-4 mr-4"> </div>
-                      <div>{recipes.time}</div>
+                      <div>{recipe.time}</div>
                     </div>
                   </div>
                 </div>

@@ -11,8 +11,8 @@ function Bookmark() {
     <div className="mb-5">
       {newRecipes.map((item) => {
         return (
-          <div className="recipes justify-content-center m-auto">
-            <div className="recipes-block">
+          <div className="justify-content-center m-auto w-75">
+            <div>
               <Link to={`/recipes/${item.id}`}>
                 <div className="d-inline-flex">
                   <div className="img mb-3">

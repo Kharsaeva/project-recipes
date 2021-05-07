@@ -101,7 +101,7 @@ export const loadRecipes = (id) => {
   };
 };
 
-export const itemDelete = (id) => {
+export const recipeDelete = (id) => {
   return function (dispatch) {
     dispatch({ type: DELETE_LOAD_START, payload: id });
 

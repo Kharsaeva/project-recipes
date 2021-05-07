@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap';
 
 function Slider() {
   return (
-    <div style={{ width: '75%' }} className="slider m-auto">
+    <div className="slider m-auto w-75">
       <Carousel fade>
         <Carousel.Item>
           <img

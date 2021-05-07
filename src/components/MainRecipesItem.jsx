@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function MainRecipesItem(props) {
   return (
-    <div className="recipes-item m-auto d-block">
+    <div className="m-auto d-block">
       <div className="pb-4 mt-4">
         <Link to={`/recipes/${props.recipe.id}`}>
           <div className="d-inline d-flex pb-4 ">

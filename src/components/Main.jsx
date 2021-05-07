@@ -2,7 +2,7 @@ import React from 'react';
 import Search from './Search';
 import Slider from './Slider';
 import './Modal/modal.css';
-import MainRecipes from './Recipes/MainRecipes';
+import MainRecipes from './MainRecipes';
 
 function Main() {
   return (

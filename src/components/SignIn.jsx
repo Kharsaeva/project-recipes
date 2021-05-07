@@ -25,11 +25,8 @@ function SignIn() {
 
   return (
     <div>
-      <div className="container">
-        <div
-          className="row justify-content-center align-items-center"
-          style={{ height: '80vh' }}
-        >
+      <div className="container signIn">
+        <div className="row justify-content-center align-items-center">
           <div className="col-5 shadow px-5 py-3 rounded">
             <Link exact to="/">
               <div className="form-group text-right">❌</div>

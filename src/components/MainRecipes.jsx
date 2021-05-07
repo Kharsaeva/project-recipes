@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MainRecipesItem from './MainRecipesItem';
-import { loadRecipes } from '../../redux/reducers/recipes';
+import { loadRecipes } from '../redux/reducers/recipes';
 import RecipePresentation from './RecipePresentation';
 
 function MainRecipes() {
@@ -19,7 +19,7 @@ function MainRecipes() {
   );
 
   return (
-    <div className="recipes justify-content-center m-auto">
+    <div className=" justify-content-center m-auto w-75">
       {filter && (
         <div>
           {filteredRecipes.map((recipe) => {
