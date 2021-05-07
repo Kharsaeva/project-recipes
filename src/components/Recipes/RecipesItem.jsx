@@ -8,6 +8,8 @@ function RecipesItem(props) {
   const dispatch = useDispatch();
 
   const [modalActive, setModalActive] = useState(false);
+  const [likeClick, setLikeClick] = useState(props.recipe.like);
+  const [likeStatus, setLikeStatus] = useState(false);
 
   const commOpen = () => {
     setModalActive(true);
@@ -16,10 +18,6 @@ function RecipesItem(props) {
   const setFavorite = (id, favorite) => {
     dispatch(favoritePatch(id, favorite));
   };
-
-  const [likeClick, setLikeClick] = useState(props.recipe.like);
-
-  const [likeStatus, setLikeStatus] = useState(false);
 
   const likeActive = () => {
     setLikeStatus(!likeStatus);

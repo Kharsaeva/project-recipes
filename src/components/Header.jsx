@@ -16,6 +16,10 @@ function Header() {
 
   const categories = useSelector((state) => state.categories.items);
 
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, [dispatch]);
+
   const handleClick = (id) => {
     if (!id) {
       history.push('/categories');
@@ -23,10 +27,6 @@ function Header() {
       history.push(`/categories/${id}`);
     }
   };
-
-  useEffect(() => {
-    dispatch(loadCategories());
-  }, [dispatch]);
 
   const logout = () => {
     dispatch(logoutStart());

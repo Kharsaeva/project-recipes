@@ -9,6 +9,8 @@ function Recipes() {
 
   const dispatch = useDispatch();
 
+  const recipe = useSelector((state) => state.recipesItem.items);
+
   useEffect(() => {
     if (id) {
       dispatch(loadRecipesItem(id));
@@ -16,8 +18,6 @@ function Recipes() {
       return <Redirect to="/recipes/:id?" />;
     }
   }, [dispatch, id]);
-
-  const recipe = useSelector((state) => state.recipesItem.items);
 
   return (
     <div className="recipes justify-content-center m-auto">

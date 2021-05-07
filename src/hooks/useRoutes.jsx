@@ -41,7 +41,6 @@ function useRoute() {
         if (route.requiredAuth && !isAuth) {
           return null;
         }
-
         return (
           <Route
             key={route.path}

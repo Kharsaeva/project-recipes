@@ -8,17 +8,16 @@ function SignIn() {
   const dispatch = useDispatch();
 
   const [login, setLogin] = useState('');
-
   const [pass, setPass] = useState('');
+
+  const error = useSelector((state) => state.auth.error);
+  const authorizing = useSelector((state) => state.auth.authorizing);
 
   const isAuth = useAuth();
 
   const handleClick = () => {
     dispatch(loginStart(login, pass));
   };
-
-  const error = useSelector((state) => state.auth.error);
-  const authorizing = useSelector((state) => state.auth.authorizing);
 
   if (isAuth) {
     return <Redirect to="/" />;

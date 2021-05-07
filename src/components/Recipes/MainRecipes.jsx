@@ -7,13 +7,12 @@ import RecipePresentation from './RecipePresentation';
 function MainRecipes() {
   const dispatch = useDispatch();
 
+  const recipes = useSelector((state) => state.recipes.items);
+  const filter = useSelector((state) => state.recipes.filter);
+
   useEffect(() => {
     dispatch(loadRecipes());
   }, [dispatch]);
-
-  const recipes = useSelector((state) => state.recipes.items);
-
-  const filter = useSelector((state) => state.recipes.filter);
 
   const filteredRecipes = recipes.filter(
     (item) => item.title.toLowerCase().indexOf(filter) !== -1,
