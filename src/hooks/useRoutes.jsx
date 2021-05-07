@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Main from '../components/Main';
 import Bookmark from '../components/Bookmark';
 import Categories from '../components/Categories/Index';
-// import AdminPage from '../components/AdminPage';
+import AdminPage from '../components/AdminPage';
 import { useAuth } from './useAuth';
 import Recipes from '../components/Recipes/Recipes';
 
@@ -12,11 +12,11 @@ const routes = [
     path: '/recipes/:id?',
     component: Recipes,
   },
-  // {
-  //   path: '/admin',
-  //   component: AdminPage,
-  //   requiredAuth: true,
-  // },
+  {
+    path: '/admin',
+    component: AdminPage,
+    requiredAuth: true,
+  },
   {
     path: '/categories/:id?',
     component: Categories,
