@@ -3,6 +3,7 @@ import './modal.css';
 
 function Modal(props) {
   const [commit, setCommit] = useState('');
+
   const [initComm, setInitComm] = useState([
     { commentText: 'Очень вкусно, всем советую 😋😋' },
   ]);
@@ -26,9 +27,9 @@ function Modal(props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="head">
-          <div className="like-one">{props.item.title}</div>
+          <div className="like-one">{props.recipe.title}</div>
           <div className="comments">
-            <i>{props.item.comments}</i>
+            <i>{props.recipe.comments}</i>
           </div>
           {initComm.map((comm, index) => {
             return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
-function Slider(props) {
+function Slider() {
   return (
     <div style={{ width: '75%' }} className="slider m-auto">
       <Carousel fade>

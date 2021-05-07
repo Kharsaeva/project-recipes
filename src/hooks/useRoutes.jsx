@@ -2,15 +2,15 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Main from '../components/Main';
 import Bookmark from '../components/Bookmark';
-import Categories from '../components/Categories/Index';
+import Categories from '../components/Categories';
 import AdminPage from '../components/AdminPage';
 import { useAuth } from './useAuth';
-import Recipes from '../components/Recipes/Recipes';
+import Index from '../components/Recipes';
 
 const routes = [
   {
     path: '/recipes/:id?',
-    component: Recipes,
+    component: Index,
   },
   {
     path: '/admin',
@@ -32,7 +32,7 @@ const routes = [
   },
 ];
 
-function UseRoutes() {
+function useRoute() {
   const isAuth = useAuth();
 
   return (
@@ -56,4 +56,4 @@ function UseRoutes() {
   );
 }
 
-export default UseRoutes;
+export default useRoute;

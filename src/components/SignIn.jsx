@@ -6,9 +6,13 @@ import { useAuth } from '../hooks/useAuth';
 
 function SignIn() {
   const dispatch = useDispatch();
+
   const [login, setLogin] = useState('');
+
   const [pass, setPass] = useState('');
+
   const isAuth = useAuth();
+
   const handleClick = () => {
     dispatch(loginStart(login, pass));
   };
@@ -19,6 +23,7 @@ function SignIn() {
   if (isAuth) {
     return <Redirect to="/" />;
   }
+
   return (
     <div>
       <div className="container">

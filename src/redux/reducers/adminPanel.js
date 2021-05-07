@@ -23,6 +23,7 @@ export default function reducer(state = initialState, action) {
           title: action.payload,
         },
       };
+
     case 'update/time':
       return {
         ...state,
@@ -31,6 +32,7 @@ export default function reducer(state = initialState, action) {
           time: action.payload,
         },
       };
+
     case 'update/ingredients':
       return {
         ...state,
@@ -39,6 +41,7 @@ export default function reducer(state = initialState, action) {
           ingredients: action.payload,
         },
       };
+
     case 'update/Cooking':
       return {
         ...state,
@@ -47,6 +50,7 @@ export default function reducer(state = initialState, action) {
           cooking: action.payload,
         },
       };
+
     case 'update/url':
       return {
         ...state,
@@ -55,6 +59,7 @@ export default function reducer(state = initialState, action) {
           url: action.payload,
         },
       };
+
     case 'update/calories':
       return {
         ...state,
@@ -63,11 +68,13 @@ export default function reducer(state = initialState, action) {
           calories: action.payload,
         },
       };
+
     case 'add/recipe/started':
       return {
         ...state,
         loading: true,
       };
+
     case 'add/recipe/succeed':
       return {
         ...state,
@@ -84,10 +91,12 @@ export default function reducer(state = initialState, action) {
           calories: '',
         },
       };
+
     default:
       return state;
   }
 }
+
 export const changeRecipeTitle = (e) => {
   return {
     type: 'update/title',
@@ -101,12 +110,14 @@ export const changeRecipeTime = (e) => {
     payload: e,
   };
 };
+
 export const changeRecipeIngredients = (e) => {
   return {
     type: 'update/ingredients',
     payload: e,
   };
 };
+
 export const changeRecipeCooking = (e) => {
   return {
     type: 'update/Cooking',
