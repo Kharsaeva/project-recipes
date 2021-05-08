@@ -60,15 +60,13 @@
   background-color: #c4c4c4;
 }
 
-.search {
-  width: 75%;
-}
-
 .main {
   margin-top: 10px;
   margin-bottom: 150px;
 }
-
+.signIn {
+  margin-top: 190px;
+}
 .block-main {
   text-align: center;
   background-color: gainsboro;
@@ -105,7 +103,7 @@
 }
 
 .btn-block2 {
-  margin-left: 210px;
+  margin-left: 230px;
   width: 200px;
 }
 
@@ -219,7 +217,7 @@ a:hover {
   border: none;
   background-color: white;
   position: absolute;
-  right: 33%;
+  right: 20%;
 }
 
 .bookmark {
@@ -251,8 +249,4 @@ a:hover {
 .category {
   justify-content: space-between;
   margin: auto;
-}
-
-.recipes {
-  width: 75%;
 }

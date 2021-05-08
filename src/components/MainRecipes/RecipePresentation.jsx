@@ -1,5 +1,5 @@
 import React from 'react';
-import MainRecipesItem from './MainRecipesItem';
+import FilteredRecipes from './FilteredRecipes';
 import { useSelector } from 'react-redux';
 
 function RecipePresentation() {
@@ -16,7 +16,7 @@ function RecipePresentation() {
       </div>
       <div>
         {frontSideRecipes.map((recipe) => {
-          return <MainRecipesItem recipe={recipe} key={recipe.id} />;
+          return <FilteredRecipes recipe={recipe} key={recipe.id} />;
         })}
       </div>
     </>

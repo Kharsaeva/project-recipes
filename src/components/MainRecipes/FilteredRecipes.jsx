@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function MainRecipesItem(props) {
+function FilteredRecipes(props) {
   return (
-    <div className="recipes-item m-auto d-block">
+    <div className="m-auto d-block">
       <div className="pb-4 mt-4">
         <Link to={`/recipes/${props.recipe.id}`}>
           <div className="d-inline d-flex pb-4 ">
@@ -21,4 +21,4 @@ function MainRecipesItem(props) {
   );
 }
 
-export default MainRecipesItem;
+export default FilteredRecipes;

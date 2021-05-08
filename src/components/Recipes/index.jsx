@@ -20,7 +20,7 @@ function Recipes() {
   }, [dispatch, id]);
 
   return (
-    <div className="recipes justify-content-center m-auto">
+    <div className="justify-content-center m-auto w-75">
       <RecipesItem recipe={recipe} key={recipe.id} />;
     </div>
   );

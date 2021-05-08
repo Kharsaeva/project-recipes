@@ -5,12 +5,12 @@ import Bookmark from '../components/Bookmark';
 import Categories from '../components/Categories';
 import AdminPage from '../components/AdminPage';
 import { useAuth } from './useAuth';
-import Index from '../components/Recipes';
+import Recipes from '../components/Recipes';
 
 const routes = [
   {
     path: '/recipes/:id?',
-    component: Index,
+    component: Recipes,
   },
   {
     path: '/admin',

@@ -63,7 +63,7 @@ function AdminPage() {
   };
 
   return (
-    <div className="container-lg m-auto list-group-item">
+    <div className="container-lg m-auto list-group-item w-75">
       <h1 className="text-sm-center mt-3 ">Добавление нового рецепта</h1>
       <Form.Group className="mb-3">
         <Form.Control

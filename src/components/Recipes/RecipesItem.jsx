@@ -27,7 +27,7 @@ function RecipesItem(props) {
   };
 
   return (
-    <div className="recipes-item m-auto d-block">
+    <div className="w-75 m-auto d-block">
       <div className="pb-4">
         <div className="d-inline d-flex pb-4 justify-content-between">
           <img className="img mr-4" src={props.recipe.url} alt="img" />

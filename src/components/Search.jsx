@@ -13,7 +13,7 @@ function Search() {
   };
 
   return (
-    <div className="search m-auto pt-3">
+    <div className="m-auto pt-3 w-75 ">
       <Form.Group className="d-flex">
         <Form.Control
           placeholder="Найти нужный рецепт..."

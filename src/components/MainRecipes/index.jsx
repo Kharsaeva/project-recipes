@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MainRecipesItem from './MainRecipesItem';
+import FilteredRecipes from './FilteredRecipes';
 import { loadRecipes } from '../../redux/reducers/recipes';
 import RecipePresentation from './RecipePresentation';
 
@@ -19,11 +19,11 @@ function MainRecipes() {
   );
 
   return (
-    <div className="recipes justify-content-center m-auto">
+    <div className=" justify-content-center m-auto w-75">
       {filter && (
         <div>
           {filteredRecipes.map((recipe) => {
-            return <MainRecipesItem recipe={recipe} key={recipe.id} />;
+            return <FilteredRecipes recipe={recipe} key={recipe.id} />;
           })}
         </div>
       )}
