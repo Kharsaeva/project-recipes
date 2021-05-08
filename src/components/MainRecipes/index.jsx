@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MainRecipesItem from './MainRecipesItem';
-import { loadRecipes } from '../redux/reducers/recipes';
+import FilteredRecipes from './FilteredRecipes';
+import { loadRecipes } from '../../redux/reducers/recipes';
 import RecipePresentation from './RecipePresentation';
 
 function MainRecipes() {
@@ -23,7 +23,7 @@ function MainRecipes() {
       {filter && (
         <div>
           {filteredRecipes.map((recipe) => {
-            return <MainRecipesItem recipe={recipe} key={recipe.id} />;
+            return <FilteredRecipes recipe={recipe} key={recipe.id} />;
           })}
         </div>
       )}
