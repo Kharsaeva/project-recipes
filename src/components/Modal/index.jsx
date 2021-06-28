@@ -3,7 +3,6 @@ import './modal.css';
 
 function Modal(props) {
   const [commit, setCommit] = useState('');
-
   const [initComm, setInitComm] = useState([
     { commentText: 'Очень вкусно, всем советую 😋😋' },
   ]);

@@ -12,7 +12,7 @@ function FilteredRecipes(props) {
           </div>
         </Link>
         <div className="d-block align-self-center pb-4">
-          <span className="mr-5">Каллорийность: {props.recipe.calories}</span>
+          <span className="mr-5">Калорийность: {props.recipe.calories}</span>
           <span>Время приготовления: {props.recipe.time}</span>
         </div>
       </div>

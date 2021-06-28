@@ -3,10 +3,10 @@ import FilteredRecipes from './FilteredRecipes';
 import { useSelector } from 'react-redux';
 
 function RecipePresentation() {
-  const recipes = useSelector((state) => state.recipes.items);
-
-  const frontSideRecipes = recipes.filter((recipe) => {
-    return recipe.id === 5 || recipe.id === 20 || recipe.id === 11;
+  const recipes = useSelector((state) => {
+    return state.recipes.items.filter((recipe) => {
+      return recipe.id === 5 || recipe.id === 20 || recipe.id === 11;
+    });
   });
 
   return (
@@ -15,7 +15,7 @@ function RecipePresentation() {
         Рецепты на каждый день: вкусно, быстро и легко
       </div>
       <div>
-        {frontSideRecipes.map((recipe) => {
+        {recipes.map((recipe) => {
           return <FilteredRecipes recipe={recipe} key={recipe.id} />;
         })}
       </div>

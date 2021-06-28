@@ -34,7 +34,7 @@ function RecipesItem(props) {
           <h2 className="align-self-center">{props.recipe.title}</h2>
         </div>
         <div className="d-block align-self-center pb-4">
-          <span className="mr-5">Каллорийность: {props.recipe.calories}</span>
+          <span className="mr-5">Калорийность: {props.recipe.calories}</span>
           <span>Время приготовления: {props.recipe.time}</span>
         </div>
         <h5>Ингредиенты:</h5>

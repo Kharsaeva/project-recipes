@@ -44,7 +44,7 @@ function Categories() {
               <Link to={`/recipes/${recipe.id}`}>
                 <div className="d-inline-flex justify-content-between">
                   <div className="img">
-                    <img width={286} height={180} src={recipe.url} alt="img" />
+                    <img width={300} height={200} src={recipe.url} alt="img" />
                   </div>
                   <div className="d-block p-3 align-self-center">
                     <h4>{recipe.title}</h4>

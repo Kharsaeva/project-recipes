@@ -25,7 +25,7 @@ function SignIn() {
 
   return (
     <div>
-      <div className="container signIn">
+      <div className="container sign-in">
         <div className="row justify-content-center align-items-center">
           <div className="col-5 shadow px-5 py-3 rounded">
             <Link exact to="/">

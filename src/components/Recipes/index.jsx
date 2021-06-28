@@ -21,7 +21,7 @@ function Recipes() {
 
   return (
     <div className="justify-content-center m-auto w-75">
-      <RecipesItem recipe={recipe} key={recipe.id} />;
+      <RecipesItem recipe={recipe} key={recipe.id} />
     </div>
   );
 }

@@ -77,3 +77,18 @@ npm run dev
     <img alt="Movsar" src="https://img.shields.io/badge/-Movsar-black?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </h3>
+
+## Мои основные задачи в данном проекте:
+
+- Создание REST API с помощью JSON-Server
+- Поиск материала для сайта
+- Поиск рецепта на сайте
+- Работа с редьюсерами
+- Создание файла README.md
+
+## Библиотеки, использованные мною в ходе работы:
+
+- redux, redux-thunk
+- react-bootstrap
+- concurrently
+- json-server
